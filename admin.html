@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; connect-src 'self' https://SEU-PROJETO.supabase.co wss://SEU-PROJETO.supabase.co; img-src 'self' data: blob: https://SEU-PROJETO.supabase.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Painel — Estilosas Fitness</title>
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%233E1B3D'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial' font-size='20' font-weight='700' fill='%23FCFAFC' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@1,6..72,300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="admin.css?v=20261019a">
+</head>
+<body class="painel-corpo">
+
+    <header class="painel-topo">
+        <a class="painel-marca" href="index.html" aria-label="Estilosas Fitness — ver o site">
+            <span class="painel-marca-nome">Estilosas</span>
+            <span class="painel-marca-voz">painel</span>
+        </a>
+        <div class="painel-topo-acoes">
+            <a class="painel-link" href="index.html" target="_blank" rel="noopener">Ver o site</a>
+            <button type="button" class="painel-sair" id="btnSair" hidden>Sair</button>
+        </div>
+    </header>
+
+    <main class="painel-main">
+
+        <!-- LOGIN -->
+        <section class="login" id="telaLogin" hidden>
+            <h1 class="login-titulo">Entrar no painel</h1>
+            <p class="login-voz">Acesso restrito à loja. Use o e-mail e a senha do administrador.</p>
+
+            <form class="login-form" id="formLogin" novalidate>
+                <label class="campo">
+                    <span>E-mail</span>
+                    <input type="email" id="loginEmail" name="email" autocomplete="username" required>
+                </label>
+                <label class="campo">
+                    <span>Senha</span>
+                    <input type="password" id="loginSenha" name="senha" autocomplete="current-password" required>
+                </label>
+                <p class="alerta" id="loginErro" role="alert" hidden></p>
+                <button type="submit" class="btn btn--bloco" id="btnEntrar">Entrar</button>
+            </form>
+        </section>
+
+        <!-- CONFERINDO SESSÃO -->
+        <section class="login" id="telaCarregando">
+            <p class="login-voz">Conferindo sessão…</p>
+        </section>
+
+        <!-- PAINEL -->
+        <section class="adm" id="telaPainel" hidden>
+
+            <div class="adm-cab">
+                <div>
+                    <h1 class="adm-titulo">Produtos</h1>
+                    <p class="adm-contagem" id="admContagem">—</p>
+                </div>
+                <button type="button" class="btn" id="btnNovo">+ Novo produto</button>
+            </div>
+
+            <ul class="adm-lista" id="admLista"></ul>
+            <p class="adm-vazio" id="admVazio" hidden>Nenhum produto cadastrado ainda. Comece pelo botão “Novo produto”.</p>
+
+            <!-- FORMULÁRIO -->
+            <div class="ficha" id="fichaProduto" hidden>
+                <div class="ficha-cab">
+                    <h2 class="ficha-titulo" id="fichaTitulo">Novo produto</h2>
+                    <button type="button" class="ficha-fechar" id="btnFecharForm" aria-label="Fechar formulário">×</button>
+                </div>
+
+                <form id="formProduto" novalidate>
+                    <input type="hidden" id="campoId">
+
+                    <div class="ficha-grade">
+                        <label class="campo">
+                            <span>Nome *</span>
+                            <input type="text" id="campoNome" maxlength="120" required>
+                        </label>
+
+                        <label class="campo">
+                            <span>Categoria *</span>
+                            <input type="text" id="campoCategoria" maxlength="60" list="categoriasSugeridas" required>
+                            <datalist id="categoriasSugeridas"></datalist>
+                        </label>
+
+                        <label class="campo">
+                            <span>Preço (R$) *</span>
+                            <input type="number" id="campoPreco" min="0" step="0.01" inputmode="decimal" required>
+                        </label>
+
+                        <label class="campo">
+                            <span>Preço “de” (riscado)</span>
+                            <input type="number" id="campoPrecoDe" min="0" step="0.01" inputmode="decimal">
+                        </label>
+
+                        <label class="campo">
+                            <span>Selo (opcional)</span>
+                            <input type="text" id="campoBadge" maxlength="40" placeholder="Ex.: Mais vendida, Oferta, Lançamento">
+                        </label>
+
+                        <label class="campo">
+                            <span>Cor de fundo da foto</span>
+                            <input type="color" id="campoPh" value="#E7E3E7">
+                        </label>
+                    </div>
+
+                    <div class="campo">
+                        <span>Tamanhos *</span>
+                        <div class="tams-editor">
+                            <ul class="tams-chips" id="tamsChips"></ul>
+                            <span class="tams-add">
+                                <input type="text" id="campoTam" maxlength="6" placeholder="Ex.: P" aria-label="Novo tamanho">
+                                <button type="button" class="btn btn--leve" id="btnAddTam">Adicionar</button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <label class="campo">
+                        <span>Texto alternativo da foto * <small>(descreve a imagem para quem não vê)</small></span>
+                        <span class="campo-linha">
+                            <input type="text" id="campoAlt" maxlength="300" required>
+                            <button type="button" class="btn btn--leve" id="btnUsarNome">Usar o nome</button>
+                        </span>
+                    </label>
+
+                    <div class="campo">
+                        <span>Foto do produto *</span>
+                        <input type="file" id="campoArquivo" accept="image/jpeg,image/png,image/webp">
+                        <p class="campo-dica">JPG, PNG ou WEBP até 5 MB. A imagem é otimizada antes de subir.</p>
+                        <div class="preview" id="preview" hidden>
+                            <img id="previewImg" alt="">
+                        </div>
+                    </div>
+
+                    <label class="opcao">
+                        <input type="checkbox" id="campoDisponivel" checked>
+                        Disponível para venda
+                    </label>
+
+                    <p class="alerta" id="formErro" role="alert" hidden></p>
+
+                    <div class="ficha-acoes">
+                        <button type="submit" class="btn" id="btnSalvar">Salvar produto</button>
+                        <button type="button" class="btn btn--leve" id="btnCancelar">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div class="aviso" id="aviso" role="status" aria-live="polite" hidden></div>
+
+    <script type="module" src="admin.js?v=20261019a"></script>
+</body>
+</html>
