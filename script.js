@@ -1,10 +1,14 @@
 /* ============================================================
-   Estilosas Fitness — catálogo, nota de encomenda e envio
+   Estilosas Fitness — catálogo dinâmico, nota de encomenda e envio
    ------------------------------------------------------------
-   CONFIGURAÇÃO: edite apenas o bloco CONFIG e a lista PRODUTOS.
+   O catálogo vem do Supabase (banco na nuvem) e é atualizado em
+   tempo real em todos os aparelhos com o site aberto.
+   Painel administrativo: admin.html
    ============================================================ */
 
 "use strict";
+
+import { db, esc, validarImgUrl } from "./supabase/client.js";
 
 /* ------------------------------------------------------------------
    CONFIGURAÇÃO CENTRAL
@@ -13,73 +17,19 @@ const CONFIG = {
     nomeEmpresa: "Estilosas Fitness",
 
     // Número internacional (55 + DDD + número), sem espaços/hífens.
-    // IMPORTANTE: troque pelo número real da loja antes de publicar.
     whatsappFornecedor: "5589981425420"
 };
 
 const CHAVE_LOCALSTORAGE = "nota_estilosasfitness_v2";
-
-/* ------------------------------------------------------------------
-   PEÇAS — dados de demonstração (troque por fotos e preços reais)
-   Formato: { id, nome, preco, precoDe?, categoria, img, alt, ph,
-             tamanhos, badge?, disponivel }
-   img = arquivo em img/ (retrato 3:4) · ph = cor de fundo da foto
-   ------------------------------------------------------------------ */
-const PRODUTOS = [
-    { id: 1,  nome: "Legging Cintura Alta Preta", preco: 89.90, categoria: "Leggings",
-      img: "img/01-legging-preta.jpg", alt: "Legging preta de cintura alta em pose de treino", ph: "#3B3B44",
-      tamanhos: ["P","M","G","GG"], badge: "Mais vendida", disponivel: true },
-    { id: 2,  nome: "Legging Compressão Vinho", preco: 94.90, categoria: "Leggings",
-      img: "img/02-legging-vinho.jpg", alt: "Legging de compressão em tom vinho em treino ao ar livre", ph: "#6E1F35",
-      tamanhos: ["P","M","G"], disponivel: true },
-    { id: 3,  nome: "Legging Cropped Cinza", preco: 84.90, precoDe: 99.90, categoria: "Leggings",
-      img: "img/03-legging-cinza.jpg", alt: "Legging cropped cinza com regata preta", ph: "#5C5C66",
-      tamanhos: ["P","M","G","GG"], badge: "Oferta", disponivel: true },
-    { id: 4,  nome: "Conjunto Cropped + Legging Rosa", preco: 129.90, precoDe: 149.90, categoria: "Conjuntos",
-      img: "img/04-conjunto-rosa.jpg", alt: "Conjunto rosa de cropped e legging em pose de treino", ph: "#D17E9B",
-      tamanhos: ["P","M","G"], badge: "Oferta", disponivel: true },
-    { id: 5,  nome: "Conjunto Fitness Malva", preco: 139.90, categoria: "Conjuntos",
-      img: "img/05-conjunto-malva.jpg", alt: "Conjunto fitness malva em exercício de treino", ph: "#B99BA8",
-      tamanhos: ["M","G","GG"], disponivel: true },
-    { id: 6,  nome: "Conjunto Seamless Caramelo", preco: 149.90, categoria: "Conjuntos",
-      img: "img/06-conjunto-caramelo.jpg", alt: "Conjunto seamless caramelo de top e legging", ph: "#9A6A45",
-      tamanhos: ["P","M","G"], badge: "Lançamento", disponivel: true },
-    { id: 7,  nome: "Top Regata Cropped Preto", preco: 49.90, categoria: "Tops",
-      img: "img/07-top-preto.jpg", alt: "Top regata cropped preto em treino de academia", ph: "#26262C",
-      tamanhos: ["P","M","G"], disponivel: true },
-    { id: 8,  nome: "Top Sun Off-White", preco: 54.90, categoria: "Tops",
-      img: "img/08-top-offwhite.jpg", alt: "Top off-white de alça fina com legging clara", ph: "#8C8478",
-      tamanhos: ["P","M","G"], badge: "Lançamento", disponivel: true },
-    { id: 9,  nome: "Top Decote Ciclista Verde", preco: 52.90, categoria: "Tops",
-      img: "img/09-top-verde.jpg", alt: "Top esportivo verde de decote ciclista", ph: "#2E5943",
-      tamanhos: ["P","M","G","GG"], disponivel: true },
-    { id: 10, nome: "Short Compressão Preto", preco: 59.90, categoria: "Shorts",
-      img: "img/10-short-preto.jpg", alt: "Short preto de compressão com regata branca em exercício", ph: "#26262C",
-      tamanhos: ["P","M","G","GG"], disponivel: true },
-    { id: 11, nome: "Short Ciclista Vermelho", preco: 64.90, categoria: "Shorts",
-      img: "img/11-short-vermelho.jpg", alt: "Short ciclista vermelho com top preto", ph: "#8E2F3E",
-      tamanhos: ["M","G"], disponivel: false },
-    { id: 12, nome: "Macacão Fitness Laranja", preco: 159.90, categoria: "Macacões",
-      img: "img/12-macacao-laranja.jpg", alt: "Macacão fitness laranja em pose de yoga ao ar livre", ph: "#C4652E",
-      tamanhos: ["P","M","G"], badge: "Lançamento", disponivel: true },
-    { id: 13, nome: "Macacão Studio Roxo", preco: 169.90, categoria: "Macacões",
-      img: "img/13-macacao-roxo.jpg", alt: "Macacão roxo de treino segurando haltere na academia", ph: "#5B3A73",
-      tamanhos: ["P","M","G","GG"], disponivel: true },
-    { id: 14, nome: "Blusinha Manga Longa Rosa", preco: 79.90, categoria: "Blusinhas",
-      img: "img/14-blusinha-rosa.jpg", alt: "Blusinha rosa de manga longa com short combinando", ph: "#D17E9B",
-      tamanhos: ["P","M","G"], disponivel: true },
-    { id: 15, nome: "Blusinha Cropped Caramelo", preco: 69.90, categoria: "Blusinhas",
-      img: "img/15-blusinha-caramelo.jpg", alt: "Blusinha cropped caramelo em look de treino", ph: "#9A6A45",
-      tamanhos: ["P","M","G"], disponivel: true }
-];
-
-const ORDEM_CATEGORIAS = ["Leggings", "Conjuntos", "Tops", "Shorts", "Macacões", "Blusinhas"];
+const CHAVE_CATALOGO = "catalogo_v1";
 
 /* ------------------------------------------------------------------
    ESTADO
    ------------------------------------------------------------------ */
 const estado = {
-    nota: [],               // [{ id, tamanho, quantidade }]
+    produtos: [],           // vem do banco: [{ id, nome, preco, ... }]
+    carregando: true,       // ainda não temos nem cache nem banco
+    nota: [],               // [{ id, tamanho, quantidade }] — ids são uuid (text)
     categoria: "Todas",
     busca: "",
     tamEscolhido: {}        // produtoId -> tamanho escolhido no catálogo
@@ -91,23 +41,54 @@ const estado = {
 const el = (id) => document.getElementById(id);
 
 const brl = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
-const formatarMoeda = (v) => brl.format(v);
+const formatarMoeda = (v) => brl.format(Number(v) || 0);
 
 const dois = (n) => String(n).padStart(2, "0");
 
 function buscarProduto(id) {
-    return PRODUTOS.find((p) => p.id === id);
+    return estado.produtos.find((p) => p.id === id);
 }
 
 function ficha(p) {
-    return dois(PRODUTOS.indexOf(p) + 1);
+    return dois(estado.produtos.indexOf(p) + 1);
 }
 
 const semMovimento = () =>
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/* Normaliza a linha do banco para o formato usado na tela. */
+function normalizar(linha) {
+    return {
+        id: String(linha.id),
+        nome: String(linha.nome || ""),
+        preco: Number(linha.preco) || 0,
+        precoDe: linha.preco_de == null ? null : Number(linha.preco_de),
+        categoria: String(linha.categoria || ""),
+        img: String(linha.img_url || ""),
+        alt: String(linha.alt || ""),
+        tamanhos: Array.isArray(linha.tamanhos) ? linha.tamanhos.map(String) : [],
+        badge: linha.badge ? String(linha.badge) : null,
+        ph: linha.ph ? String(linha.ph) : "#E7E3E7",
+        disponivel: linha.disponivel !== false,
+        criadoEm: linha.criado_em || ""
+    };
+}
+
+function ordenar() {
+    estado.produtos.sort((a, b) => String(a.criadoEm).localeCompare(String(b.criadoEm)));
+}
+
+/* Categorias na ordem em que aparecem no banco (admin controla a ordem). */
+function categorias() {
+    const vistas = [];
+    estado.produtos.forEach((p) => {
+        if (!vistas.includes(p.categoria)) vistas.push(p.categoria);
+    });
+    return ["Todas", ...vistas];
+}
+
 /* ------------------------------------------------------------------
-   PERSISTÊNCIA
+   PERSISTÊNCIA — sacola e cache do catálogo
    ------------------------------------------------------------------ */
 function salvarNota() {
     try {
@@ -122,12 +103,36 @@ function carregarNota() {
         const dados = JSON.parse(bruto);
         if (!Array.isArray(dados)) throw new Error("formato inválido");
         estado.nota = dados.filter((it) =>
-            it && typeof it.id === "number" && buscarProduto(it.id) &&
+            it && typeof it.id === "string" && buscarProduto(it.id) &&
             typeof it.tamanho === "string" &&
             Number.isFinite(it.quantidade) && it.quantidade >= 1
         ).map((it) => ({ id: it.id, tamanho: it.tamanho, quantidade: Math.floor(it.quantidade) }));
     } catch (e) {
         estado.nota = [];
+    }
+}
+
+function salvarCatalogo() {
+    try {
+        localStorage.setItem(CHAVE_CATALOGO, JSON.stringify(estado.produtos));
+    } catch (e) { /* armazenamento indisponível */ }
+}
+
+function carregarCatalogoDoCache() {
+    try {
+        const bruto = localStorage.getItem(CHAVE_CATALOGO);
+        if (!bruto) return false;
+        const dados = JSON.parse(bruto);
+        if (!Array.isArray(dados) || dados.length === 0) return false;
+        const validos = dados
+            .filter((p) => p && typeof p.id === "string" && typeof p.nome === "string")
+            .map(normalizar);
+        if (validos.length === 0) return false;
+        estado.produtos = validos;
+        ordenar();
+        return true;
+    } catch (e) {
+        return false;
     }
 }
 
@@ -168,15 +173,68 @@ const subtotal = () => estado.nota.reduce((s, it) => {
 const contarPecas = () => estado.nota.reduce((s, it) => s + it.quantidade, 0);
 
 /* ------------------------------------------------------------------
-   CATÁLOGO — filtros, fileiras e cards
+   DADOS — banco + tempo real
    ------------------------------------------------------------------ */
-function categorias() {
-    return ["Todas", ...ORDEM_CATEGORIAS];
+async function buscarDoBanco() {
+    const { data, error } = await db
+        .from("products")
+        .select("id, nome, preco, preco_de, categoria, img_url, alt, tamanhos, badge, ph, disponivel, criado_em")
+        .order("criado_em", { ascending: true });
+    if (error) throw error;
+    return (data || []).map(normalizar);
 }
 
+async function carregarCatalogo() {
+    const tinhaCache = carregarCatalogoDoCache();
+    if (tinhaCache) {
+        estado.carregando = false;
+        renderTudo();
+    } else {
+        renderTudo();
+    }
+
+    try {
+        const doBanco = await buscarDoBanco();
+        estado.produtos = doBanco;
+        estado.carregando = false;
+        ordenar();
+        salvarCatalogo();
+        renderTudo();
+    } catch (e) {
+        estado.carregando = estado.produtos.length === 0;
+        renderTudo();
+        if (!tinhaCache) {
+            mostrarToast("Não conseguimos carregar o catálogo agora. Tente recarregar.");
+        }
+    }
+}
+
+function assinarTempoReal() {
+    db.channel("catalogo-tempo-real")
+        .on("postgres_changes", { event: "*", schema: "public", table: "products" }, (payload) => {
+            const { eventType, new: novo, old: antigo } = payload;
+            if (eventType === "INSERT" && novo) {
+                if (!buscarProduto(novo.id)) estado.produtos.push(normalizar(novo));
+            } else if (eventType === "UPDATE" && novo) {
+                const i = estado.produtos.findIndex((p) => p.id === novo.id);
+                if (i >= 0) estado.produtos[i] = normalizar(novo);
+                else estado.produtos.push(normalizar(novo));
+            } else if (eventType === "DELETE" && antigo) {
+                estado.produtos = estado.produtos.filter((p) => p.id !== antigo.id);
+            }
+            ordenar();
+            salvarCatalogo();
+            renderTudo();
+        })
+        .subscribe();
+}
+
+/* ------------------------------------------------------------------
+   CATÁLOGO — filtros, fileiras e cards
+   ------------------------------------------------------------------ */
 function filtrados() {
     const termo = estado.busca.trim().toLowerCase();
-    return PRODUTOS.filter((p) => {
+    return estado.produtos.filter((p) => {
         const okCat = estado.categoria === "Todas" || p.categoria === estado.categoria;
         const okBusca = !termo || (p.nome + " " + p.categoria).toLowerCase().includes(termo);
         return okCat && okBusca;
@@ -186,7 +244,9 @@ function filtrados() {
 function renderFiltros() {
     const caixa = el("filtrosCategorias");
     caixa.innerHTML = "";
-    categorias().forEach((cat) => {
+    const todas = categorias();
+    if (!todas.includes(estado.categoria)) estado.categoria = "Todas";
+    todas.forEach((cat) => {
         const b = document.createElement("button");
         b.type = "button";
         b.className = "filtro";
@@ -201,32 +261,40 @@ function renderFiltros() {
     });
 }
 
+/* Imagem opcional: só renderiza <img> se a URL for do bucket do projeto. */
+function imagemDoCard(p) {
+    if (!validarImgUrl(p.img)) return "";
+    return `<img src="${esc(p.img)}" alt="${esc(p.alt)}" loading="lazy" width="800" height="1067">`;
+}
+
 function cardProduto(p) {
-    if (!estado.tamEscolhido[p.id]) estado.tamEscolhido[p.id] = p.tamanhos[0];
+    if (!estado.tamEscolhido[p.id] || !p.tamanhos.includes(estado.tamEscolhido[p.id])) {
+        estado.tamEscolhido[p.id] = p.tamanhos[0];
+    }
     const tam = estado.tamEscolhido[p.id];
 
     const li = document.createElement("li");
     li.className = "card-item" + (p.disponivel ? "" : " card-item--indisponivel");
-    li.dataset.id = String(p.id);
+    li.dataset.id = p.id;
     li.innerHTML = `
         <article class="card">
-            <div class="card-foto" style="--ph:${p.ph}">
-                <img src="${p.img}" alt="${p.alt}" loading="lazy" width="800" height="1067">
-                ${p.badge ? `<span class="card-badge">${p.badge}</span>` : ""}
+            <div class="card-foto" style="--ph:${esc(p.ph)}">
+                ${imagemDoCard(p)}
+                ${p.badge ? `<span class="card-badge">${esc(p.badge)}</span>` : ""}
             </div>
             <div class="card-corpo">
                 <div class="card-linha1">
-                    <h3 class="card-nome">${p.nome}</h3>
+                    <h3 class="card-nome">${esc(p.nome)}</h3>
                     <p class="card-preco">${p.precoDe ? `<span class="de">${formatarMoeda(p.precoDe)}</span>` : ""}${formatarMoeda(p.preco)}</p>
                 </div>
-                <p class="card-cat">${p.categoria}</p>
+                <p class="card-cat">${esc(p.categoria)}</p>
                 <fieldset class="tams" ${p.disponivel ? "" : "disabled"}>
-                    <legend class="sr-only">Tamanho de ${p.nome}</legend>
+                    <legend class="sr-only">Tamanho de ${esc(p.nome)}</legend>
                     ${p.tamanhos.map((t) => `
-                        <button type="button" class="tam" data-tam="${t}"
-                            aria-pressed="${t === tam}">${t}</button>`).join("")}
+                        <button type="button" class="tam" data-tam="${esc(t)}"
+                            aria-pressed="${t === tam}">${esc(t)}</button>`).join("")}
                 </fieldset>
-                <button type="button" class="item-add" data-add="${p.id}" ${p.disponivel ? "" : "disabled"}>+ sacola</button>
+                <button type="button" class="item-add" data-add="${esc(p.id)}" ${p.disponivel ? "" : "disabled"}>+ sacola</button>
                 ${p.disponivel ? "" : `<p class="aviso-item">Indisponível nesta edição</p>`}
             </div>
         </article>`;
@@ -238,11 +306,11 @@ function montarFileira(titulo, pecas) {
     sec.className = "fileira";
     sec.innerHTML = `
         <div class="fileira-cab">
-            <h3 class="fileira-titulo">${titulo}</h3>
+            <h3 class="fileira-titulo">${esc(titulo)}</h3>
             <span class="fileira-n">${pecas.length === 1 ? "1 peça" : pecas.length + " peças"}</span>
             <div class="fileira-setas">
-                <button type="button" class="fileira-seta" data-dir="-1" aria-label="Ver peças anteriores de ${titulo}">←</button>
-                <button type="button" class="fileira-seta" data-dir="1" aria-label="Ver mais peças de ${titulo}">→</button>
+                <button type="button" class="fileira-seta" data-dir="-1" aria-label="Ver peças anteriores de ${esc(titulo)}">←</button>
+                <button type="button" class="fileira-seta" data-dir="1" aria-label="Ver mais peças de ${esc(titulo)}">→</button>
             </div>
         </div>
         <ul class="carrossel"></ul>`;
@@ -258,14 +326,16 @@ function renderCatalogo() {
 
     el("contagem").textContent =
         itens.length === 1 ? "1 peça no índice" : `${itens.length} peças no índice`;
-    el("vazioBusca").hidden = itens.length > 0;
+    el("vazioBusca").hidden = !(itens.length === 0 && estado.produtos.length > 0);
+    el("catalogoCarregando").hidden = !estado.carregando;
+    el("catalogoVazio").hidden = !(estado.produtos.length === 0 && !estado.carregando);
 
     if (estado.categoria === "Todas" && !estado.busca.trim()) {
         const destaques = itens.filter((p) => p.badge);
         if (destaques.length) box.appendChild(montarFileira("Destaques", destaques));
     }
 
-    ORDEM_CATEGORIAS.forEach((cat) => {
+    categorias().filter((c) => c !== "Todas").forEach((cat) => {
         const pecas = itens.filter((p) => p.categoria === cat);
         if (pecas.length) box.appendChild(montarFileira(cat, pecas));
     });
@@ -289,7 +359,7 @@ function configurarCatalogo() {
         const tamBtn = e.target.closest(".tam");
         if (tamBtn) {
             const cardItem = tamBtn.closest(".card-item");
-            const id = Number(cardItem.dataset.id);
+            const id = cardItem.dataset.id;
             estado.tamEscolhido[id] = tamBtn.dataset.tam;
             cardItem.querySelectorAll(".tam").forEach((b) =>
                 b.setAttribute("aria-pressed", String(b.dataset.tam === tamBtn.dataset.tam)));
@@ -298,7 +368,7 @@ function configurarCatalogo() {
 
         const addBtn = e.target.closest("[data-add]");
         if (addBtn && !addBtn.disabled) {
-            const id = Number(addBtn.dataset.add);
+            const id = addBtn.dataset.add;
             const p = buscarProduto(id);
             if (adicionar(id, estado.tamEscolhido[id])) {
                 addBtn.dataset.estado = "ok";
@@ -340,6 +410,11 @@ function renderNota() {
     const resumo = el("notaResumo");
     tbody.innerHTML = "";
 
+    // Descarta itens cujo produto saiu do catálogo.
+    const antes = estado.nota.length;
+    estado.nota = estado.nota.filter((it) => buscarProduto(it.id));
+    if (estado.nota.length !== antes) salvarNota();
+
     const tem = estado.nota.length > 0;
     vazio.hidden = tem;
     resumo.hidden = !tem;
@@ -351,15 +426,15 @@ function renderNota() {
         tr.innerHTML = `
             <td class="peca-n">${ficha(p)}</td>
             <td>
-                <span class="peca-nome">${p.nome}</span>
-                <span class="peca-meta">Tam. ${it.tamanho} · ${formatarMoeda(p.preco)} un.</span>
+                <span class="peca-nome">${esc(p.nome)}</span>
+                <span class="peca-meta">Tam. ${esc(it.tamanho)} · ${formatarMoeda(p.preco)} un.</span>
                 <button type="button" class="peca-remover">remover</button>
             </td>
             <td>
                 <span class="qtd">
-                    <button type="button" data-dim="-1" aria-label="Diminuir quantidade de ${p.nome}">−</button>
+                    <button type="button" data-dim="-1" aria-label="Diminuir quantidade de ${esc(p.nome)}">−</button>
                     <span aria-label="Quantidade">${it.quantidade}</span>
-                    <button type="button" data-dim="1" aria-label="Aumentar quantidade de ${p.nome}">+</button>
+                    <button type="button" data-dim="1" aria-label="Aumentar quantidade de ${esc(p.nome)}">+</button>
                 </span>
             </td>
             <td class="peca-total">${formatarMoeda(p.preco * it.quantidade)}</td>
@@ -372,6 +447,13 @@ function renderNota() {
 
     el("subtotalTexto").textContent = formatarMoeda(subtotal());
     el("totalFormTexto").textContent = formatarMoeda(subtotal());
+}
+
+function renderTudo() {
+    renderFiltros();
+    renderCatalogo();
+    renderNota();
+    destacarCapa();
 }
 
 /* ------------------------------------------------------------------
@@ -585,10 +667,26 @@ function controleTopo() {
    INICIALIZAÇÃO
    ------------------------------------------------------------------ */
 function destacarCapa() {
-    const p = PRODUTOS[0];
+    const p = estado.produtos[0];
+    const foto = el("capaAmostra");
     const img = el("capaImg");
-    img.src = p.img;
-    img.alt = p.alt;
+    if (!p) {
+        foto.classList.add("capa-foto--vazia");
+        img.hidden = true;
+        el("capaFicha").textContent = "—";
+        el("capaDestaqueNome").textContent = "Novo catálogo chegando";
+        el("capaDestaquePreco").textContent = "A loja está montando esta edição";
+        return;
+    }
+    foto.classList.remove("capa-foto--vazia");
+    if (validarImgUrl(p.img)) {
+        img.hidden = false;
+        img.src = p.img;
+        img.alt = p.alt;
+    } else {
+        img.hidden = true;
+        img.removeAttribute("src");
+    }
     el("capaFicha").textContent = ficha(p);
     el("capaDestaqueNome").textContent = p.nome;
     el("capaDestaquePreco").textContent = formatarMoeda(p.preco);
@@ -634,20 +732,20 @@ function configurarEventos() {
     el("rodapeWhatsLink").href = urlWhatsApp();
 }
 
-function iniciar() {
-    carregarNota();
-    destacarCapa();
+async function iniciar() {
     configurarBusca();
     configurarCatalogo();
-    renderFiltros();
-    renderCatalogo();
-    renderNota();
     configurarEventos();
     atualizarBlocoEndereco();
     rotacionarAvisos();
     animarCapa();
     controleTopo();
     el("anoAtual").textContent = String(new Date().getFullYear());
+
+    await carregarCatalogo();
+    carregarNota();
+    renderNota();
+    assinarTempoReal();
 }
 
 document.addEventListener("DOMContentLoaded", iniciar);

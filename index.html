@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Segurança: bloqueia scripts de terceiros que não sejam o CDN e o Supabase do projeto -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; connect-src 'self' https://SEU-PROJETO.supabase.co wss://SEU-PROJETO.supabase.co; img-src 'self' data: blob: https://SEU-PROJETO.supabase.co; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
     <title>Estilosas Fitness — Vitrine e caderno de encomendas</title>
     <meta name="description" content="Vitrine de moda fitness feminina: leggings, conjuntos, tops, shorts, macacões e blusinhas. Monte sua nota de encomenda e envie pelo WhatsApp — pagamento e frete a gente combina no atendimento.">
     <meta name="author" content="Estilosas Fitness">
@@ -19,8 +23,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@1,6..72,300..700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=20261019c">
-    <script>document.documentElement.classList.add("js");</script>
+    <link rel="stylesheet" href="style.css?v=20261019d">
+    <script src="head.js"></script>
 </head>
 <body>
 
@@ -81,13 +85,13 @@
 
                 <aside class="capa-destaque" aria-label="Peça em destaque desta edição">
                     <div class="capa-foto" id="capaAmostra">
-                        <img id="capaImg" src="img/01-legging-preta.jpg" alt="Legging preta de cintura alta em pose de treino" width="800" height="1067" fetchpriority="high">
-                        <span class="capa-ficha" id="capaFicha" aria-hidden="true">01</span>
+                        <img id="capaImg" alt="" width="800" height="1067" fetchpriority="high" hidden>
+                        <span class="capa-ficha" id="capaFicha" aria-hidden="true">—</span>
                     </div>
                     <div class="capa-destaque-info">
                         <p class="capa-destaque-rot">Peça em destaque</p>
-                        <p class="capa-destaque-nome" id="capaDestaqueNome">Legging Cintura Alta Preta</p>
-                        <p class="capa-destaque-preco" id="capaDestaquePreco">R$ 89,90</p>
+                        <p class="capa-destaque-nome" id="capaDestaqueNome">Carregando catálogo…</p>
+                        <p class="capa-destaque-preco" id="capaDestaquePreco"></p>
                     </div>
                 </aside>
 
@@ -115,6 +119,14 @@
                     </div>
 
                     <div class="catalogo" id="catalogo"></div>
+
+                    <div class="vazio" id="catalogoCarregando">
+                        <p class="vazio-voz">Carregando o índice…</p>
+                    </div>
+
+                    <div class="vazio" id="catalogoVazio" hidden>
+                        <p class="vazio-voz">A loja está montando esta edição. As peças aparecem aqui assim que forem publicadas.</p>
+                    </div>
 
                     <div class="vazio" id="vazioBusca" hidden>
                         <p class="vazio-voz">Nenhuma peça bateu com essa busca.</p>
@@ -312,6 +324,6 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
-    <script src="script.js?v=20261019b"></script>
+    <script type="module" src="script.js?v=20261019c"></script>
 </body>
 </html>

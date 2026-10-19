@@ -243,6 +243,7 @@ a { color: inherit; }
 /* foto do destaque da capa */
 .capa-foto { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #3B3B44; }
 .capa-foto img { width: 100%; height: 100%; object-fit: cover; }
+.capa-foto--vazia { background: linear-gradient(160deg, #F2EEF1, #E3DCE2); }
 .capa-ficha {
     position: absolute; left: 0; top: 12px;
     background: var(--berinjela); color: #fff;
