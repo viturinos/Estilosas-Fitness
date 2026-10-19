@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Estilosas Fitness — Vitrine e caderno de encomendas</title>
+    <meta name="description" content="Vitrine de moda fitness feminina: leggings, conjuntos, tops, shorts, macacões e blusinhas. Monte sua nota de encomenda e envie pelo WhatsApp — pagamento e frete a gente combina no atendimento.">
+    <meta name="author" content="Estilosas Fitness">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Estilosas Fitness — Vitrine e caderno de encomendas">
+    <meta property="og:description" content="Escolha as peças, monte a nota de encomenda e envie pelo WhatsApp.">
+    <meta property="og:locale" content="pt_BR">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%233E1B3D'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial' font-size='20' font-weight='700' fill='%23FCFAFC' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@1,6..72,300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css?v=20261019c">
+    <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+    <!-- Faixa de avisos -->
+    <div class="faixa" role="region" aria-label="Avisos da loja">
+        <p class="faixa-msg ativa" id="faixaMsg">Atendimento direto com a loja</p>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="topo" id="topo">
+        <div class="topo-inner">
+            <a class="marca" href="#capa" aria-label="Estilosas Fitness — início">
+                <span class="marca-nome">Estilosas</span>
+                <span class="marca-voz">fitness</span>
+            </a>
+
+            <nav class="topo-nav" aria-label="Menu principal">
+                <a href="#indice">Índice</a>
+                <a href="#processo">Como funciona</a>
+                <a href="#colofao">Contato</a>
+            </nav>
+
+            <button type="button" class="topo-sacola" id="abrirNotaBtn" aria-expanded="false" aria-controls="nota">
+                <svg class="topo-sacola-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M5.5 8.5h13l-1.15 12H6.65L5.5 8.5Z"/>
+                    <path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/>
+                </svg>
+                <span class="topo-sacola-n" id="contadorSacola" aria-hidden="true" hidden>0</span>
+                <span class="sr-only" id="contadorSacolaTexto">sacola: nenhuma peça na nota</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 1 · CAPA -->
+        <section class="capa" id="capa">
+            <div class="capa-inner">
+
+                <div class="capa-texto">
+                    <h1 class="capa-titulo" id="capaTitulo" aria-label="Estilosas">
+                        <span class="capa-letra">E</span><span class="capa-letra">s</span><span class="capa-letra">t</span><span class="capa-letra">i</span><span class="capa-letra">l</span><span class="capa-letra">o</span><span class="capa-letra">s</span><span class="capa-letra">a</span><span class="capa-letra">s</span>
+                    </h1>
+
+                    <p class="capa-voz">Você escolhe as peças. A gente anota o pedido e responde no&nbsp;WhatsApp.</p>
+
+                    <div class="capa-acoes">
+                        <a class="btn" href="#indice">Ver o índice <span class="btn-seta" aria-hidden="true">→</span></a>
+                        <a class="link" href="#processo">Como funciona</a>
+                    </div>
+
+                    <ul class="capa-notas">
+                        <li><strong>Sem cadastro</strong> para montar o pedido</li>
+                        <li><strong>Pagamento e frete</strong> combinados no atendimento</li>
+                        <li><strong>Troca de tamanho</strong> orientada por quem atende</li>
+                    </ul>
+                </div>
+
+                <aside class="capa-destaque" aria-label="Peça em destaque desta edição">
+                    <div class="capa-foto" id="capaAmostra">
+                        <img id="capaImg" src="img/01-legging-preta.jpg" alt="Legging preta de cintura alta em pose de treino" width="800" height="1067" fetchpriority="high">
+                        <span class="capa-ficha" id="capaFicha" aria-hidden="true">01</span>
+                    </div>
+                    <div class="capa-destaque-info">
+                        <p class="capa-destaque-rot">Peça em destaque</p>
+                        <p class="capa-destaque-nome" id="capaDestaqueNome">Legging Cintura Alta Preta</p>
+                        <p class="capa-destaque-preco" id="capaDestaquePreco">R$ 89,90</p>
+                    </div>
+                </aside>
+
+            </div>
+        </section>
+
+        <!-- 2 · ÍNDICE -->
+        <section class="indice" id="indice">
+            <div class="indice-inner">
+
+                <div class="indice-lista-col">
+                    <header class="secao-cab">
+                        <h2 class="secao-titulo">Índice</h2>
+                        <p class="secao-voz">Escolha o tamanho na peça e adicione à nota. Dá para revisar tudo antes de enviar.</p>
+                    </header>
+
+                    <div class="filtros" id="filtrosCategorias" role="group" aria-label="Filtrar por categoria"></div>
+
+                    <div class="ferramentas">
+                        <p class="contagem" id="contagem" role="status"></p>
+                        <div class="busca">
+                            <label for="buscaInput">Buscar</label>
+                            <input type="search" id="buscaInput" placeholder="nome ou categoria" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="catalogo" id="catalogo"></div>
+
+                    <div class="vazio" id="vazioBusca" hidden>
+                        <p class="vazio-voz">Nenhuma peça bateu com essa busca.</p>
+                        <button type="button" class="link" id="limparBusca">Limpar filtros</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3 · PROCESSO -->
+        <section class="processo" id="processo">
+            <div class="processo-inner">
+                <header class="processo-cab">
+                    <h2 class="secao-titulo">Como funciona</h2>
+                    <p class="processo-voz">Não tem checkout aqui. O pedido termina em conversa.</p>
+                </header>
+
+                <ol class="processo-passos">
+                    <li>
+                        <span class="passo-n" aria-hidden="true">01</span>
+                        <h3 class="passo-titulo">Monte a nota</h3>
+                        <p class="passo-voz">Escolha tamanho e adicione as peças. Você ajusta quantidades e apaga o que não quiser — nada é cobrado por aqui.</p>
+                    </li>
+                    <li>
+                        <span class="passo-n" aria-hidden="true">02</span>
+                        <h3 class="passo-titulo">Envie a nota</h3>
+                        <p class="passo-voz">Ao finalizar, abrimos o WhatsApp com a nota já escrita — peças, tamanhos e totais. É só enviar.</p>
+                    </li>
+                    <li>
+                        <span class="passo-n" aria-hidden="true">03</span>
+                        <h3 class="passo-titulo">Combine no atendimento</h3>
+                        <p class="passo-voz">A loja confirma disponibilidade, forma de pagamento e frete. Se o tamanho não servir, orientamos a troca.</p>
+                    </li>
+                </ol>
+
+                <p class="processo-aviso">Este site não processa pagamento e não emite nota fiscal eletrônica: o pedido se fecha no atendimento pelo WhatsApp.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 4 · COLOFÃO -->
+    <footer class="colofao" id="colofao">
+        <div class="colofao-inner">
+
+            <div class="colofao-marca">
+                <p class="marca marca--rodape">
+                    <span class="marca-nome">Estilosas</span>
+                    <span class="marca-voz">fitness</span>
+                </p>
+                <p class="colofao-voz">Vitrine de moda fitness feminina. O pedido se monta aqui e se fecha com gente.</p>
+            </div>
+
+            <div class="colofao-col">
+                <h2 class="colofao-rot">Atendimento</h2>
+                <p>Segunda a sábado, 9h às 19h</p>
+                <p>Resposta no mesmo dia</p>
+                <a class="link" id="rodapeWhatsLink" href="#" target="_blank" rel="noopener">Abrir conversa no WhatsApp</a>
+            </div>
+
+            <div class="colofao-col">
+                <h2 class="colofao-rot">O que este site faz</h2>
+                <p>Mostra as peças desta edição</p>
+                <p>Guarda sua sacola no aparelho</p>
+                <p>Escreve a nota e abre o WhatsApp</p>
+            </div>
+
+            <div class="colofao-col">
+                <h2 class="colofao-rot">O que ele não faz</h2>
+                <p>Não cobra cartão nem Pix</p>
+                <p>Não calcula frete</p>
+                <p>Não pede cadastro</p>
+            </div>
+
+        </div>
+        <p class="colofao-fim">© <span id="anoAtual"></span> Estilosas Fitness — moda fitness feminina, escolhida peça por peça.</p>
+    </footer>
+
+    <!-- 5 · NOTA DE ENCOMENDA -->
+    <div class="nota-fundo" id="notaFundo" hidden></div>
+
+    <aside class="nota" id="nota" role="dialog" aria-modal="true" aria-labelledby="notaTitulo" aria-hidden="true">
+        <header class="nota-topo">
+            <div>
+                <p class="nota-rot">Estilosas Fitness</p>
+                <h2 class="nota-titulo" id="notaTitulo">Nota de encomenda</h2>
+            </div>
+            <button type="button" class="nota-fechar" id="fecharNotaBtn" aria-label="Fechar nota de encomenda">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M5 5l14 14M19 5L5 19"/>
+                </svg>
+            </button>
+        </header>
+
+        <div class="nota-corpo" id="notaCorpo">
+
+            <!-- Etapa 1: peças -->
+            <div id="etapaPecas">
+                <table class="nota-tabela">
+                    <caption class="sr-only">Peças na sua nota de encomenda</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nº</th>
+                            <th scope="col">Peça</th>
+                            <th scope="col">Qtd</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaItens"></tbody>
+                </table>
+
+                <div class="nota-vazio" id="notaVazio">
+                    <p class="vazio-voz">Sua nota está em branco.</p>
+                    <button type="button" class="link" id="irParaIndice">Voltar ao índice</button>
+                </div>
+
+                <div class="nota-resumo" id="notaResumo" hidden>
+                    <div class="nota-total">
+                        <span>Total das peças</span>
+                        <strong id="subtotalTexto">R$ 0,00</strong>
+                    </div>
+                    <p class="nota-obs">Frete, pagamento e disponibilidade são combinados no atendimento.</p>
+                    <button type="button" class="btn btn--bloco" id="btnContinuar">Continuar pedido <span class="btn-seta" aria-hidden="true">→</span></button>
+                </div>
+            </div>
+
+            <!-- Etapa 2: dados -->
+            <form id="etapaDados" hidden novalidate>
+                <button type="button" class="voltar" id="btnVoltar">← Voltar para as peças</button>
+
+                <fieldset class="grupo">
+                    <legend>Quem pede</legend>
+                    <label class="campo">
+                        <span>Nome *</span>
+                        <input type="text" id="campoNome" name="nome" autocomplete="name" required>
+                    </label>
+                    <label class="campo">
+                        <span>Telefone *</span>
+                        <input type="tel" id="campoTelefone" name="telefone" autocomplete="tel" placeholder="(00) 00000-0000" required>
+                    </label>
+                </fieldset>
+
+                <fieldset class="grupo">
+                    <legend>Recebimento</legend>
+                    <div class="opcoes">
+                        <label class="opcao"><input type="radio" name="forma" value="entrega" checked> Entrega</label>
+                        <label class="opcao"><input type="radio" name="forma" value="retirada"> Retirada no local</label>
+                    </div>
+                    <div id="blocoEndereco">
+                        <label class="campo">
+                            <span>Endereço *</span>
+                            <input type="text" id="campoEndereco" name="endereco" autocomplete="street-address">
+                        </label>
+                        <label class="campo">
+                            <span>Bairro</span>
+                            <input type="text" id="campoBairro" name="bairro">
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="grupo">
+                    <legend>Aviso para a loja</legend>
+                    <label class="campo">
+                        <span class="sr-only">Observações do pedido</span>
+                        <textarea id="campoObs" name="observacoes" rows="3" placeholder="Ex.: preferência de cor, dúvida de tamanho…"></textarea>
+                    </label>
+                </fieldset>
+
+                <p class="erro" id="erroForm" role="alert" hidden></p>
+
+                <div class="nota-resumo">
+                    <div class="nota-total">
+                        <span>Total das peças</span>
+                        <strong id="totalFormTexto">R$ 0,00</strong>
+                    </div>
+                    <button type="submit" class="btn btn--bloco" id="btnEnviarWhats">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.2.2-.4.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.7l.5-.6c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.9.9-1.1 2.2-.3 3.8a11 11 0 0 0 4.3 4.1c1.6.8 2.4.8 3.2.6.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.2-.3-.2-.6-.4z"/></svg>
+                        Enviar a nota no WhatsApp
+                    </button>
+                    <p class="nota-obs">Abrimos o WhatsApp com a nota já escrita. Nada é cobrado por aqui.</p>
+                </div>
+            </form>
+        </div>
+    </aside>
+
+    <button type="button" class="sacola-flutuante" id="sacolaFlutuante" aria-expanded="false" aria-controls="nota" hidden>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M5.5 8.5h13l-1.15 12H6.65L5.5 8.5Z"/>
+            <path d="M9 8.5V7a3 3 0 0 1 6 0v1.5"/>
+        </svg>
+        <span class="sacola-flutuante-n" id="sacolaFlutuanteN" aria-hidden="true">0</span>
+        <span class="sr-only" id="sacolaFlutuanteTexto">Abrir nota de encomenda</span>
+    </button>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <script src="script.js?v=20261019b"></script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+- generic [ref=f9e4]:
+  - navigation [ref=f9e5]:
+    - link "Página inicial da Unsplash" [ref=f9e8] [cursor=pointer]:
+      - /url: /pt-br
+      - img "Página inicial da Unsplash" [ref=f9e9]
+    - generic [ref=f9e11]:
+      - link "Entrar / Cadastrar-se" [ref=f9e12] [cursor=pointer]:
+        - /url: /pt-br/login?referrer=%2Fpt-br%2Fs%2Ffotografias%2Fwoman-leggings-fitness
+      - button "Idioma" [ref=f9e15] [cursor=pointer]
+      - button "Menu" [ref=f9e18] [cursor=pointer]
+  - generic [ref=f9e21]:
+    - generic [ref=f9e22]:
+      - navigation [ref=f9e23]:
+        - search "Pesquise conteúdo visual em todo o site" [ref=f9e25]:
+          - button "Pesquise na Unsplash" [ref=f9e26] [cursor=pointer]
+          - combobox [ref=f9e29]:
+            - searchbox "Pesquise na Unsplash" [ref=f9e30]: woman leggings fitness
+            - listbox
+          - button "Limpar" [ref=f9e31] [cursor=pointer]
+        - button "Filtros" [ref=f9e34] [cursor=pointer]
+      - generic [ref=f9e38]:
+        - list [ref=f9e45]:
+          - listitem [ref=f9e46]:
+            - link "Fotos 3,6 mil":
+              - /url: /pt-br/s/fotografias/woman-leggings-fitness
+              - text: Fotos
+              - generic: 3,6 mil
+          - listitem [ref=f9e47]:
+            - link "Ilustrações 30" [ref=f9e48] [cursor=pointer]:
+              - /url: /pt-br/s/ilustra%C3%A7%C3%B5es/woman-leggings-fitness
+              - text: Ilustrações
+              - generic [ref=f9e49]: "30"
+          - listitem [ref=f9e50]:
+            - button "Mais" [ref=f9e51] [cursor=pointer]
+        - generic [ref=f9e52]:
+          - heading "Woman leggings fitness" [level=1] [ref=f9e54]
+          - generic [ref=f9e58]:
+            - link "aptidão" [ref=f9e60] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/aptid%C3%A3o
+            - link "ginásio" [ref=f9e62] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/gin%C3%A1sio
+            - link "desporto" [ref=f9e64] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/desporto
+            - link "cinza" [ref=f9e66] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/cinza
+            - link "malhação" [ref=f9e68] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/malha%C3%A7%C3%A3o
+            - link "bem-estar" [ref=f9e70] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/bem--estar
+            - link "mulher" [ref=f9e72] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/mulher
+            - link "povo" [ref=f9e74] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/povo
+            - link "Legging" [ref=f9e76] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/legging
+            - link "sutiã esportivo" [ref=f9e78] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/suti%C3%A3-esportivo
+            - link "mulher atlética" [ref=f9e80] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/mulher-atl%C3%A9tica
+            - link "Kiev" [ref=f9e82] [cursor=pointer]:
+              - /url: /pt-br/s/fotografias/kiev
+        - generic [ref=f9e84]:
+          - generic [ref=f9e87]:
+            - figure [ref=f9e88]:
+              - generic [ref=f9e90]:
+                - link [ref=f9e91] [cursor=pointer]:
+                  - /url: /pt-br/@gettyimages
+                - generic [ref=f9e94]:
+                  - link "Getty Images" [ref=f9e95] [cursor=pointer]:
+                    - /url: /pt-br/@gettyimages
+                  - generic [ref=f9e96]:
+                    - text: Para
+                    - link "Unsplash+" [ref=f9e97] [cursor=pointer]:
+                      - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fpessoa-de-top-esportivo-azul-alcE2AahqDw
+              - generic [ref=f9e98]:
+                - link [ref=f9e99]:
+                  - /url: /pt-br/fotografias/pessoa-de-top-esportivo-azul-alcE2AahqDw
+                  - img "Uma pessoa de top esportivo azul e legging com músculos abdominais definidos" [ref=f9e100]
+                - link [ref=f9e101] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fpessoa-de-top-esportivo-azul-alcE2AahqDw
+              - generic [ref=f9e105]:
+                - generic [ref=f9e106]:
+                  - button "Favorito" [ref=f9e107] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e111] [cursor=pointer]
+                - link "Download" [ref=f9e115] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fpessoa-de-top-esportivo-azul-alcE2AahqDw
+            - contentinfo [ref=f9e122]:
+              - generic [ref=f9e123]: –– ––– ––– –– ––– – ––– ––– –––– – – –– ––– – – ––– –– –– –––– ––
+              - generic [ref=f9e129] [cursor=pointer]
+            - figure [ref=f9e130]:
+              - generic [ref=f9e132]:
+                - link [ref=f9e133] [cursor=pointer]:
+                  - /url: /pt-br/@juliarekamie
+                - link "Julia Rekamie" [ref=f9e137] [cursor=pointer]:
+                  - /url: /pt-br/@juliarekamie
+              - link [ref=f9e139]:
+                - /url: /pt-br/fotografias/mulher-no-sutia-esportivo-rosa-e-leggings-rosa-Z72YujnOrlY
+                - img "mulher no sutiã esportivo rosa e leggings rosa" [ref=f9e140]
+              - generic [ref=f9e142]:
+                - generic [ref=f9e143]:
+                  - button "Favorito" [ref=f9e144] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e148] [cursor=pointer]
+                - generic [ref=f9e152]:
+                  - link "Download" [ref=f9e153] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/Z72YujnOrlY/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e154] [cursor=pointer]
+            - generic [ref=f9e157]:
+              - heading "Imagens patrocinadas" [level=4] [ref=f9e158]
+              - generic [ref=f9e167]: ––– – –– –– – –– –––– ––– ––––
+            - figure [ref=f9e168]:
+              - generic [ref=f9e170]:
+                - link [ref=f9e171] [cursor=pointer]:
+                  - /url: /pt-br/@juliarekamie
+                - link "Julia Rekamie" [ref=f9e175] [cursor=pointer]:
+                  - /url: /pt-br/@juliarekamie
+              - link [ref=f9e177]:
+                - /url: /pt-br/fotografias/mulher-realizando-treino-de-joelho-alto-2aHSA17X17c
+                - img "Uma mulher com roupas esportivas malva fazendo um exercício para o joelho alto em um estúdio" [ref=f9e178]
+              - generic [ref=f9e180]:
+                - generic [ref=f9e181]:
+                  - button "Favorito" [ref=f9e182] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e186] [cursor=pointer]
+                - generic [ref=f9e190]:
+                  - link "Download" [ref=f9e191] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/2aHSA17X17c/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e192] [cursor=pointer]
+            - figure [ref=f9e195]:
+              - generic [ref=f9e197]:
+                - link [ref=f9e198] [cursor=pointer]:
+                  - /url: /pt-br/@subtlecinematics
+                - link "Subtle Cinematics" [ref=f9e202] [cursor=pointer]:
+                  - /url: /pt-br/@subtlecinematics
+              - link [ref=f9e204]:
+                - /url: /pt-br/fotografias/mulher-no-sutia-esportivo-preto-e-leggings-pretas-fazendo-yoga-FeIxTBB1Iww
+                - img "mulher no sutiã esportivo preto e leggings pretas fazendo yoga" [ref=f9e205]
+              - generic [ref=f9e207]:
+                - generic [ref=f9e208]:
+                  - button "Favorito" [ref=f9e209] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e213] [cursor=pointer]
+                - generic [ref=f9e217]:
+                  - link "Download" [ref=f9e218] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/FeIxTBB1Iww/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e219] [cursor=pointer]
+            - figure [ref=f9e222]:
+              - generic [ref=f9e224]:
+                - link [ref=f9e225] [cursor=pointer]:
+                  - /url: /pt-br/@gettyimages
+                - generic [ref=f9e228]:
+                  - link "Getty Images" [ref=f9e229] [cursor=pointer]:
+                    - /url: /pt-br/@gettyimages
+                  - generic [ref=f9e230]:
+                    - text: Para
+                    - link "Unsplash+" [ref=f9e231] [cursor=pointer]:
+                      - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fretrato-da-mulher-fitness-em-roupas-esportivas-de-moda-mulher-bonita-em-roupas-esportivas-pretas-alta-resolucao-7noKOblSS0U
+              - generic [ref=f9e232]:
+                - link [ref=f9e233]:
+                  - /url: /pt-br/fotografias/retrato-da-mulher-fitness-em-roupas-esportivas-de-moda-mulher-bonita-em-roupas-esportivas-pretas-alta-resolucao-7noKOblSS0U
+                  - img "Retrato da mulher fitness em roupas esportivas de moda, mulher bonita em roupas esportivas pretas. Alta Resolução" [ref=f9e234]
+                - link [ref=f9e235] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fretrato-da-mulher-fitness-em-roupas-esportivas-de-moda-mulher-bonita-em-roupas-esportivas-pretas-alta-resolucao-7noKOblSS0U
+              - generic [ref=f9e239]:
+                - generic [ref=f9e240]:
+                  - button "Favorito" [ref=f9e241] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e245] [cursor=pointer]
+                - link "Download" [ref=f9e249] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fretrato-da-mulher-fitness-em-roupas-esportivas-de-moda-mulher-bonita-em-roupas-esportivas-pretas-alta-resolucao-7noKOblSS0U
+            - figure [ref=f9e252]:
+              - generic [ref=f9e254]:
+                - link [ref=f9e255] [cursor=pointer]:
+                  - /url: /pt-br/@tammynaz
+                - link "Tammy Gann" [ref=f9e259] [cursor=pointer]:
+                  - /url: /pt-br/@tammynaz
+              - link [ref=f9e261]:
+                - /url: /pt-br/fotografias/foto-em-tons-de-cinza-de-pessoa-usando-sutia-esportivo-e-leggings-610V59jwByI
+                - img "foto em tons de cinza de pessoa usando sutiã esportivo e leggings" [ref=f9e262]
+              - generic [ref=f9e264]:
+                - generic [ref=f9e265]:
+                  - button "Favorito" [ref=f9e266] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e270] [cursor=pointer]
+                - generic [ref=f9e274]:
+                  - link "Download" [ref=f9e275] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/610V59jwByI/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e276] [cursor=pointer]
+            - figure [ref=f9e279]:
+              - generic [ref=f9e281]:
+                - link [ref=f9e282] [cursor=pointer]:
+                  - /url: /pt-br/@robshumski
+                - link "Roberto Shumski" [ref=f9e286] [cursor=pointer]:
+                  - /url: /pt-br/@robshumski
+              - link [ref=f9e288]:
+                - /url: /pt-br/fotografias/uma-pessoa-levantando-as-maos-para-cima-SHDUbprcCB4
+                - img "uma pessoa levantando as mãos para cima" [ref=f9e289]
+              - generic [ref=f9e291]:
+                - generic [ref=f9e292]:
+                  - button "Favorito" [ref=f9e293] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e297] [cursor=pointer]
+                - generic [ref=f9e301]:
+                  - link "Download" [ref=f9e302] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/SHDUbprcCB4/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e303] [cursor=pointer]
+            - figure [ref=f9e306]:
+              - generic [ref=f9e308]:
+                - link [ref=f9e309] [cursor=pointer]:
+                  - /url: /pt-br/@cazual_dk
+                - link "Michael B. Luong" [ref=f9e313] [cursor=pointer]:
+                  - /url: /pt-br/@cazual_dk
+              - link [ref=f9e315]:
+                - /url: /pt-br/fotografias/mulher-na-regata-preta-e-leggings-cinzas-2mGaIs51MNU
+                - img "mulher na regata preta e leggings cinzas" [ref=f9e316]
+              - generic [ref=f9e318]:
+                - generic [ref=f9e319]:
+                  - button "Favorito" [ref=f9e320] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e324] [cursor=pointer]
+                - generic [ref=f9e328]:
+                  - link "Download" [ref=f9e329] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/2mGaIs51MNU/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e330] [cursor=pointer]
+            - figure [ref=f9e333]:
+              - generic [ref=f9e335]:
+                - link [ref=f9e336] [cursor=pointer]:
+                  - /url: /pt-br/@gettyimages
+                - generic [ref=f9e339]:
+                  - link "Getty Images" [ref=f9e340] [cursor=pointer]:
+                    - /url: /pt-br/@gettyimages
+                  - generic [ref=f9e341]:
+                    - text: Para
+                    - link "Unsplash+" [ref=f9e342] [cursor=pointer]:
+                      - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fdesportista-musculoso-mantendo-as-costas-retas-enquanto-se-empurra-para-cima-com-um-peso-de-mao-preta-bD5emTqKuwA
+              - generic [ref=f9e343]:
+                - link [ref=f9e344]:
+                  - /url: /pt-br/fotografias/desportista-musculoso-mantendo-as-costas-retas-enquanto-se-empurra-para-cima-com-um-peso-de-mao-preta-bD5emTqKuwA
+                  - img "Desportista musculoso mantendo as costas retas enquanto se empurra para cima com um peso de mão preta" [ref=f9e345]
+                - link [ref=f9e346] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fdesportista-musculoso-mantendo-as-costas-retas-enquanto-se-empurra-para-cima-com-um-peso-de-mao-preta-bD5emTqKuwA
+              - generic [ref=f9e350]:
+                - generic [ref=f9e351]:
+                  - button "Favorito" [ref=f9e352] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e356] [cursor=pointer]
+                - link "Download" [ref=f9e360] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fdesportista-musculoso-mantendo-as-costas-retas-enquanto-se-empurra-para-cima-com-um-peso-de-mao-preta-bD5emTqKuwA
+            - figure [ref=f9e363]:
+              - generic [ref=f9e365]:
+                - link [ref=f9e366] [cursor=pointer]:
+                  - /url: /pt-br/@vadimparipaphotography
+                - link "Vadim Paripa" [ref=f9e370] [cursor=pointer]:
+                  - /url: /pt-br/@vadimparipaphotography
+              - link [ref=f9e372]:
+                - /url: /pt-br/fotografias/mulher-em-pe-e-segurando-bola-8VI6WwEEEHw
+                - img "mulher em pé e segurando bola" [ref=f9e373]
+              - generic [ref=f9e375]:
+                - generic [ref=f9e376]:
+                  - button "Favorito" [ref=f9e377] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e381] [cursor=pointer]
+                - generic [ref=f9e385]:
+                  - link "Download" [ref=f9e386] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/8VI6WwEEEHw/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e387] [cursor=pointer]
+            - figure [ref=f9e390]:
+              - generic [ref=f9e392]:
+                - link [ref=f9e393] [cursor=pointer]:
+                  - /url: /pt-br/@lgnwvr
+                - link "LOGAN WEAVER | @LGNWVR" [ref=f9e397] [cursor=pointer]:
+                  - /url: /pt-br/@lgnwvr
+              - link [ref=f9e399]:
+                - /url: /pt-br/fotografias/uma-mulher-em-um-top-de-sutia-esportivo-branco-e-leggings--8RlkUaTFGI
+                - img "Uma mulher em um top de sutiã esportivo branco e leggings" [ref=f9e400]
+              - generic [ref=f9e402]:
+                - generic [ref=f9e403]:
+                  - button "Favorito" [ref=f9e404] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e408] [cursor=pointer]
+                - generic [ref=f9e412]:
+                  - link "Download" [ref=f9e413] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/-8RlkUaTFGI/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e414] [cursor=pointer]
+            - figure [ref=f9e417]:
+              - generic [ref=f9e419]:
+                - link [ref=f9e420] [cursor=pointer]:
+                  - /url: /pt-br/@holawalterlee
+                - link "Walter O" [ref=f9e424] [cursor=pointer]:
+                  - /url: /pt-br/@holawalterlee
+              - link [ref=f9e426]:
+                - /url: /pt-br/fotografias/mulher-no-sutia-esportivo-rosa-e-leggings-pretas-fazendo-yoga-durante-o-dia-9S44Zk3pZyc
+                - img "mulher no sutiã esportivo rosa e leggings pretas fazendo yoga durante o dia" [ref=f9e427]
+              - generic [ref=f9e429]:
+                - generic [ref=f9e430]:
+                  - button "Favorito" [ref=f9e431] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e435] [cursor=pointer]
+                - generic [ref=f9e439]:
+                  - link "Download" [ref=f9e440] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/9S44Zk3pZyc/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e441] [cursor=pointer]
+            - figure [ref=f9e444]:
+              - generic [ref=f9e446]:
+                - link [ref=f9e447] [cursor=pointer]:
+                  - /url: /pt-br/@wesleyphotography
+                - generic [ref=f9e450]:
+                  - link "Wesley Tingey" [ref=f9e451] [cursor=pointer]:
+                    - /url: /pt-br/@wesleyphotography
+                  - generic [ref=f9e452]:
+                    - text: Para
+                    - link "Unsplash+" [ref=f9e453] [cursor=pointer]:
+                      - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fuma-mulher-esta-se-esticando-em-uma-quadra-de-basquete-FBRzlQ3e_KQ
+              - generic [ref=f9e454]:
+                - link [ref=f9e455]:
+                  - /url: /pt-br/fotografias/uma-mulher-esta-se-esticando-em-uma-quadra-de-basquete-FBRzlQ3e_KQ
+                  - img "uma mulher está se esticando em uma quadra de basquete" [ref=f9e456]
+                - link [ref=f9e457] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fuma-mulher-esta-se-esticando-em-uma-quadra-de-basquete-FBRzlQ3e_KQ
+              - generic [ref=f9e461]:
+                - generic [ref=f9e462]:
+                  - button "Favorito" [ref=f9e463] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e467] [cursor=pointer]
+                - link "Download" [ref=f9e471] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fuma-mulher-esta-se-esticando-em-uma-quadra-de-basquete-FBRzlQ3e_KQ
+            - figure [ref=f9e474]:
+              - generic [ref=f9e476]:
+                - link [ref=f9e477] [cursor=pointer]:
+                  - /url: /pt-br/@annes02
+                - link "Anes Hamzic" [ref=f9e481] [cursor=pointer]:
+                  - /url: /pt-br/@annes02
+              - link [ref=f9e483]:
+                - /url: /pt-br/fotografias/uma-mulher-em-um-top-de-sutia-esportivo-preto-e-leggings-_grnnrAR0wg
+                - img "Uma mulher em um top de sutiã esportivo preto e leggings" [ref=f9e484]
+              - generic [ref=f9e486]:
+                - generic [ref=f9e487]:
+                  - button "Favorito" [ref=f9e488] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e492] [cursor=pointer]
+                - generic [ref=f9e496]:
+                  - link "Download" [ref=f9e497] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/_grnnrAR0wg/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e498] [cursor=pointer]
+            - figure [ref=f9e501]:
+              - generic [ref=f9e503]:
+                - link [ref=f9e504] [cursor=pointer]:
+                  - /url: /pt-br/@andredantan19
+                - link "Andre Tan" [ref=f9e508] [cursor=pointer]:
+                  - /url: /pt-br/@andredantan19
+              - link [ref=f9e510]:
+                - /url: /pt-br/fotografias/uma-mulher-em-um-top-de-sutia-esportivo-e-leggings-esta-fazendo-uma-pose-de-ioga-hD9sACJSK18
+                - img "uma mulher em um top de sutiã esportivo e leggings está fazendo uma pose de ioga" [ref=f9e511]
+              - generic [ref=f9e513]:
+                - generic [ref=f9e514]:
+                  - button "Favorito" [ref=f9e515] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e519] [cursor=pointer]
+                - generic [ref=f9e523]:
+                  - link "Download" [ref=f9e524] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/hD9sACJSK18/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e525] [cursor=pointer]
+            - figure [ref=f9e528]:
+              - generic [ref=f9e530]:
+                - link [ref=f9e531] [cursor=pointer]:
+                  - /url: /pt-br/@matt909
+                - link "Alex Shaw" [ref=f9e535] [cursor=pointer]:
+                  - /url: /pt-br/@matt909
+              - link [ref=f9e537]:
+                - /url: /pt-br/fotografias/mulher-no-sutia-esportivo-preto-e-leggings-pretas-fazendo-yoga-w8caF7FfWpI
+                - img "mulher no sutiã esportivo preto e leggings pretas fazendo yoga" [ref=f9e538]
+              - generic [ref=f9e540]:
+                - generic [ref=f9e541]:
+                  - button "Favorito" [ref=f9e542] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e546] [cursor=pointer]
+                - generic [ref=f9e550]:
+                  - link "Download" [ref=f9e551] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/w8caF7FfWpI/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e552] [cursor=pointer]
+            - figure [ref=f9e555]:
+              - generic [ref=f9e557]:
+                - link [ref=f9e558] [cursor=pointer]:
+                  - /url: /pt-br/@kaboompics
+                - generic [ref=f9e561]:
+                  - link "Karolina Grabowska" [ref=f9e562] [cursor=pointer]:
+                    - /url: /pt-br/@kaboompics
+                  - generic [ref=f9e563]:
+                    - text: Para
+                    - link "Unsplash+" [ref=f9e564] [cursor=pointer]:
+                      - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fuma-mulher-deitada-no-chao-com-as-pernas-para-cima-r7j7aB47YyM
+              - generic [ref=f9e565]:
+                - link [ref=f9e566]:
+                  - /url: /pt-br/fotografias/uma-mulher-deitada-no-chao-com-as-pernas-para-cima-r7j7aB47YyM
+                  - img "uma mulher deitada no chão com as pernas para cima" [ref=f9e567]
+                - link [ref=f9e568] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fuma-mulher-deitada-no-chao-com-as-pernas-para-cima-r7j7aB47YyM
+              - generic [ref=f9e572]:
+                - generic [ref=f9e573]:
+                  - button "Favorito" [ref=f9e574] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e578] [cursor=pointer]
+                - link "Download" [ref=f9e582] [cursor=pointer]:
+                  - /url: /pt-br/plus?referrer=%2Fpt-br%2Ffotografias%2Fuma-mulher-deitada-no-chao-com-as-pernas-para-cima-r7j7aB47YyM
+            - figure [ref=f9e585]:
+              - generic [ref=f9e587]:
+                - link [ref=f9e588] [cursor=pointer]:
+                  - /url: /pt-br/@kyleclevelandphoto
+                - link "Kyle Cleveland" [ref=f9e592] [cursor=pointer]:
+                  - /url: /pt-br/@kyleclevelandphoto
+              - link [ref=f9e594]:
+                - /url: /pt-br/fotografias/mulher-em-calcas-pretas-e-botas-de-couro-preto-em-pe-na-estrada-de-asfalto-preto-durante-o-dia--OY_eF_TIo4
+                - img "mulher em calças pretas e botas de couro preto em pé na estrada de asfalto preto durante o dia" [ref=f9e595]
+              - generic [ref=f9e597]:
+                - generic [ref=f9e598]:
+                  - button "Favorito" [ref=f9e599] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e603] [cursor=pointer]
+                - generic [ref=f9e607]:
+                  - link "Download" [ref=f9e608] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/-OY_eF_TIo4/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e609] [cursor=pointer]
+            - figure [ref=f9e612]:
+              - generic [ref=f9e614]:
+                - link [ref=f9e615] [cursor=pointer]:
+                  - /url: /pt-br/@shootwithlou
+                - link "Luis Santoyo" [ref=f9e619] [cursor=pointer]:
+                  - /url: /pt-br/@shootwithlou
+              - link [ref=f9e621]:
+                - /url: /pt-br/fotografias/pessoa-em-calcas-pretas-e-sapatos-pretos-em-pe-no-chao-de-concreto-cinza-JD1Md2OUtN8
+                - img "pessoa em calças pretas e sapatos pretos em pé no chão de concreto cinza" [ref=f9e622]
+              - generic [ref=f9e624]:
+                - generic [ref=f9e625]:
+                  - button "Favorito" [ref=f9e626] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e630] [cursor=pointer]
+                - generic [ref=f9e634]:
+                  - link "Download" [ref=f9e635] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/JD1Md2OUtN8/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e636] [cursor=pointer]
+            - figure [ref=f9e639]:
+              - generic [ref=f9e641]:
+                - link [ref=f9e642] [cursor=pointer]:
+                  - /url: /pt-br/@wizwow
+                - link "Donald Giannatti" [ref=f9e646] [cursor=pointer]:
+                  - /url: /pt-br/@wizwow
+              - link [ref=f9e648]:
+                - /url: /pt-br/fotografias/uma-mulher-em-pe-na-frente-de-um-edificio-kgpNckEs3pA
+                - img "uma mulher em pé na frente de um edifício" [ref=f9e649]
+              - generic [ref=f9e651]:
+                - generic [ref=f9e652]:
+                  - button "Favorito" [ref=f9e653] [cursor=pointer]
+                  - button "Adicionar à coleção" [ref=f9e657] [cursor=pointer]
+                - generic [ref=f9e661]:
+                  - link "Download" [ref=f9e662] [cursor=pointer]:
+                    - /url: https://unsplash.com/photos/kgpNckEs3pA/download?force=true
+                  - button "Escolha o tamanho do download" [ref=f9e663] [cursor=pointer]
+          - heading "Pesquise imagens premium na iStock | Pegue seu desconto agora" [level=2] [ref=f9e669]:
+            - text: Pesquise imagens premium na iStock
+            - generic [ref=f9e670]: "| Pegue seu desconto agora"
+          - button "Carregar mais" [ref=f9e680] [cursor=pointer]
+          - generic [ref=f9e681]:
+            - link [ref=f9e682] [cursor=pointer]:
+              - /url: /pt-br
+            - paragraph [ref=f9e685]: Crie algo incrível
+    - generic:
+      - region "Notifications"

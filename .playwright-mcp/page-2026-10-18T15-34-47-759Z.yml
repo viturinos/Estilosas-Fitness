@@ -1,0 +1,21 @@
+- generic [ref=f15e4]:
+  - navigation [ref=f15e5]:
+    - link "Página inicial da Unsplash" [ref=f15e8] [cursor=pointer]:
+      - /url: /pt-br
+      - img "Página inicial da Unsplash" [ref=f15e9]
+    - generic [ref=f15e11]:
+      - link "Entrar / Cadastrar-se" [ref=f15e12] [cursor=pointer]:
+        - /url: /pt-br/login?referrer=%2Fpt-br%2Fs%2Ffotografias%2Fgym-outfit-woman-set
+      - button "Idioma" [ref=f15e15] [cursor=pointer]
+      - button "Menu" [ref=f15e18] [cursor=pointer]
+  - generic [ref=f15e21]:
+    - navigation [ref=f15e23]:
+      - search "Pesquise conteúdo visual em todo o site" [ref=f15e25]:
+        - button "Pesquise na Unsplash" [ref=f15e26] [cursor=pointer]
+        - combobox [ref=f15e29]:
+          - searchbox "Pesquise na Unsplash" [ref=f15e30]: gym outfit woman set
+          - listbox
+        - button "Limpar" [ref=f15e31] [cursor=pointer]
+      - button "Filtros" [ref=f15e34] [cursor=pointer]
+    - generic:
+      - region "Notifications"

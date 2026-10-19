@@ -1,0 +1,328 @@
+- generic [active] [ref=f1e1]:
+  - region "Avisos da loja" [ref=f1e2]:
+    - paragraph [ref=f1e3]: Atendimento personalizado — quem responde é a loja
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - link "Estilosas Fitness — início" [ref=f1e6] [cursor=pointer]:
+        - /url: "#capa"
+        - generic [ref=f1e7]: Estilosas
+        - generic [ref=f1e8]: fitness
+      - navigation "Menu principal" [ref=f1e9]:
+        - link "Índice" [ref=f1e10] [cursor=pointer]:
+          - /url: "#indice"
+        - link "Como funciona" [ref=f1e11] [cursor=pointer]:
+          - /url: "#processo"
+        - link "Contato" [ref=f1e12] [cursor=pointer]:
+          - /url: "#colofao"
+      - button "sacola 3 peças na nota" [ref=f1e13] [cursor=pointer]:
+        - generic [ref=f1e14]: sacola
+        - generic [aria-hidden] [ref=f1e15]: "3"
+        - generic [ref=f1e16]: 3 peças na nota
+  - main [ref=f1e17]:
+    - generic [ref=f1e19]:
+      - generic [ref=f1e20]:
+        - paragraph [ref=f1e21]:
+          - generic [ref=f1e22]: Vitrine nº 04
+          - generic [aria-hidden] [ref=f1e23]: ·
+          - generic [ref=f1e24]: Outubro de 2026
+          - generic [aria-hidden] [ref=f1e25]: ·
+          - generic [ref=f1e26]: Moda fitness feminina
+        - heading "Estilosas" [level=1] [ref=f1e27]:
+          - generic [ref=f1e28]: E
+          - generic [ref=f1e29]: s
+          - generic [ref=f1e30]: t
+          - generic [ref=f1e31]: i
+          - generic [ref=f1e32]: l
+          - generic [ref=f1e33]: o
+          - generic [ref=f1e34]: s
+          - generic [ref=f1e35]: a
+          - generic [ref=f1e36]: s
+        - paragraph [ref=f1e37]: Você escolhe as peças. A gente anota o pedido e responde no WhatsApp.
+        - generic [ref=f1e38]:
+          - link "Ver o índice" [ref=f1e39] [cursor=pointer]:
+            - /url: "#indice"
+            - text: Ver o índice
+            - generic [aria-hidden] [ref=f1e40]: →
+          - link "Como funciona" [ref=f1e41] [cursor=pointer]:
+            - /url: "#processo"
+        - list [ref=f1e42]:
+          - listitem [ref=f1e43]:
+            - strong [ref=f1e44]: Sem cadastro
+            - text: para montar o pedido
+          - listitem [ref=f1e45]:
+            - strong [ref=f1e46]: Pagamento e frete
+            - text: combinados no atendimento
+          - listitem [ref=f1e47]:
+            - strong [ref=f1e48]: Troca de tamanho
+            - text: orientada por quem atende
+      - complementary "Peça em destaque desta edição" [ref=f1e49]:
+        - generic [ref=f1e50]:
+          - generic [aria-hidden] [ref=f1e51]: "01"
+          - generic [ref=f1e52]: amostra de cor
+        - generic [ref=f1e53]:
+          - paragraph [ref=f1e54]: Peça em destaque
+          - paragraph [ref=f1e55]: Legging Cintura Alta Preta
+          - paragraph [ref=f1e56]: R$ 89,90
+    - generic [ref=f1e58]:
+      - generic [ref=f1e59]:
+        - generic [ref=f1e60]:
+          - heading "Índice" [level=2] [ref=f1e61]
+          - paragraph [ref=f1e62]: Escolha o tamanho na linha e mande adicionar. Dá para revisar tudo antes de enviar.
+        - group "Filtrar por categoria" [ref=f1e63]:
+          - button "Todas" [pressed] [ref=f1e64] [cursor=pointer]
+          - button "Leggings" [ref=f1e65] [cursor=pointer]
+          - button "Tops" [ref=f1e66] [cursor=pointer]
+          - button "Conjuntos" [ref=f1e67] [cursor=pointer]
+          - button "Moda praia" [ref=f1e68] [cursor=pointer]
+          - button "Acessórios" [ref=f1e69] [cursor=pointer]
+        - generic [ref=f1e70]:
+          - status [ref=f1e71]: 12 peças no índice
+          - generic [ref=f1e72]:
+            - generic [ref=f1e73]: Buscar
+            - searchbox "Buscar" [ref=f1e74]
+        - generic [aria-hidden] [ref=f1e75]:
+          - generic [ref=f1e76]: Nº
+          - generic [ref=f1e77]: Peça
+          - generic [ref=f1e78]: Tamanho
+          - generic [ref=f1e79]: Preço
+        - list [ref=f1e80]:
+          - listitem [ref=f1e81]:
+            - generic [aria-hidden] [ref=f1e83]: "01"
+            - generic [ref=f1e84]:
+              - generic [ref=f1e85]: Legging Cintura Alta Preta · Mais vendida
+              - generic [ref=f1e86]: Leggings
+            - group "Tamanho de Legging Cintura Alta Preta" [ref=f1e87]:
+              - button "P" [pressed] [ref=f1e89] [cursor=pointer]
+              - button "M" [ref=f1e90] [cursor=pointer]
+              - button "G" [ref=f1e91] [cursor=pointer]
+              - button "GG" [ref=f1e92] [cursor=pointer]
+            - generic [ref=f1e93]: R$ 89,90
+            - button "+ sacola" [ref=f1e94] [cursor=pointer]
+          - listitem [ref=f1e95]:
+            - generic [aria-hidden] [ref=f1e97]: "02"
+            - generic [ref=f1e98]:
+              - generic [ref=f1e99]: Legging Compressão Vinho
+              - generic [ref=f1e100]: Leggings
+            - group "Tamanho de Legging Compressão Vinho" [ref=f1e101]:
+              - button "P" [pressed] [ref=f1e103] [cursor=pointer]
+              - button "M" [ref=f1e104] [cursor=pointer]
+              - button "G" [ref=f1e105] [cursor=pointer]
+            - generic [ref=f1e106]: R$ 94,90
+            - button "+ sacola" [ref=f1e107] [cursor=pointer]
+          - listitem [ref=f1e108]:
+            - generic [aria-hidden] [ref=f1e110]: "03"
+            - generic [ref=f1e111]:
+              - generic [ref=f1e112]: Legging Cropped Verde · Oferta
+              - generic [ref=f1e113]: Leggings
+            - group "Tamanho de Legging Cropped Verde" [ref=f1e114]:
+              - button "P" [pressed] [ref=f1e116] [cursor=pointer]
+              - button "M" [ref=f1e117] [cursor=pointer]
+              - button "G" [ref=f1e118] [cursor=pointer]
+              - button "GG" [ref=f1e119] [cursor=pointer]
+            - generic [ref=f1e120]:
+              - generic [ref=f1e121]: R$ 99,90
+              - text: R$ 84,90
+            - button "+ sacola" [ref=f1e122] [cursor=pointer]
+          - listitem [ref=f1e123]:
+            - generic [aria-hidden] [ref=f1e125]: "04"
+            - generic [ref=f1e126]:
+              - generic [ref=f1e127]: Top Regata Cropped Preto
+              - generic [ref=f1e128]: Tops
+            - group "Tamanho de Top Regata Cropped Preto" [ref=f1e129]:
+              - button "P" [pressed] [ref=f1e131] [cursor=pointer]
+              - button "M" [ref=f1e132] [cursor=pointer]
+              - button "G" [ref=f1e133] [cursor=pointer]
+            - generic [ref=f1e134]: R$ 49,90
+            - button "+ sacola" [ref=f1e135] [cursor=pointer]
+          - listitem [ref=f1e136]:
+            - generic [aria-hidden] [ref=f1e138]: "05"
+            - generic [ref=f1e139]:
+              - generic [ref=f1e140]: Top Sun Off-White · Lançamento
+              - generic [ref=f1e141]: Tops
+            - group "Tamanho de Top Sun Off-White" [ref=f1e142]:
+              - button "P" [pressed] [ref=f1e144] [cursor=pointer]
+              - button "M" [ref=f1e145] [cursor=pointer]
+              - button "G" [ref=f1e146] [cursor=pointer]
+            - generic [ref=f1e147]: R$ 54,90
+            - button "+ sacola" [ref=f1e148] [cursor=pointer]
+          - listitem [ref=f1e149]:
+            - generic [aria-hidden] [ref=f1e151]: "06"
+            - generic [ref=f1e152]:
+              - generic [ref=f1e153]: Top Decote Ciclista Rosa
+              - generic [ref=f1e154]: Tops
+            - group "Tamanho de Top Decote Ciclista Rosa" [ref=f1e155]:
+              - button "P" [pressed] [ref=f1e157] [cursor=pointer]
+              - button "M" [ref=f1e158] [cursor=pointer]
+              - button "G" [ref=f1e159] [cursor=pointer]
+              - button "GG" [ref=f1e160] [cursor=pointer]
+            - generic [ref=f1e161]: R$ 52,90
+            - button "+ sacola" [ref=f1e162] [cursor=pointer]
+          - listitem [ref=f1e163]:
+            - generic [aria-hidden] [ref=f1e165]: "07"
+            - generic [ref=f1e166]:
+              - generic [ref=f1e167]: Conjunto Cropped + Legging Rosa · Oferta
+              - generic [ref=f1e168]: Conjuntos
+            - group "Tamanho de Conjunto Cropped + Legging Rosa" [ref=f1e169]:
+              - button "P" [pressed] [ref=f1e171] [cursor=pointer]
+              - button "M" [ref=f1e172] [cursor=pointer]
+              - button "G" [ref=f1e173] [cursor=pointer]
+            - generic [ref=f1e174]:
+              - generic [ref=f1e175]: R$ 149,90
+              - text: R$ 129,90
+            - button "+ sacola" [ref=f1e176] [cursor=pointer]
+          - listitem [ref=f1e177]:
+            - generic [aria-hidden] [ref=f1e179]: "08"
+            - generic [ref=f1e180]:
+              - generic [ref=f1e181]: Conjunto Fitness Azul Petro
+              - generic [ref=f1e182]: Conjuntos
+            - group "Tamanho de Conjunto Fitness Azul Petro" [ref=f1e183]:
+              - button "M" [pressed] [ref=f1e185] [cursor=pointer]
+              - button "G" [ref=f1e186] [cursor=pointer]
+              - button "GG" [ref=f1e187] [cursor=pointer]
+            - generic [ref=f1e188]: R$ 139,90
+            - button "+ sacola" [ref=f1e189] [cursor=pointer]
+          - listitem [ref=f1e190]:
+            - generic [aria-hidden] [ref=f1e192]: "09"
+            - generic [ref=f1e193]:
+              - generic [ref=f1e194]: Conjunto Seamless Caramelo · Lançamento
+              - generic [ref=f1e195]: Conjuntos
+            - group "Tamanho de Conjunto Seamless Caramelo" [ref=f1e196]:
+              - button "P" [pressed] [ref=f1e198] [cursor=pointer]
+              - button "M" [ref=f1e199] [cursor=pointer]
+              - button "G" [ref=f1e200] [cursor=pointer]
+            - generic [ref=f1e201]: R$ 149,90
+            - button "+ sacola" [ref=f1e202] [cursor=pointer]
+          - listitem [ref=f1e203]:
+            - generic [aria-hidden] [ref=f1e205]: "10"
+            - generic [ref=f1e206]:
+              - generic [ref=f1e207]: Saída de Praia Isa Amarela
+              - generic [ref=f1e208]: Moda praia
+            - group "Tamanho de Saída de Praia Isa Amarela" [ref=f1e209]:
+              - button "P" [pressed] [ref=f1e211] [cursor=pointer]
+              - button "M" [ref=f1e212] [cursor=pointer]
+              - button "G" [ref=f1e213] [cursor=pointer]
+            - generic [ref=f1e214]: R$ 79,90
+            - button "+ sacola" [ref=f1e215] [cursor=pointer]
+          - listitem [ref=f1e216]:
+            - generic [aria-hidden] [ref=f1e218]: "11"
+            - generic [ref=f1e219]:
+              - generic [ref=f1e220]: Biquíni Isca Preta
+              - generic [ref=f1e221]: Moda praia
+            - group "Tamanho de Biquíni Isca Preta" [ref=f1e222]:
+              - button "P" [pressed] [ref=f1e224] [cursor=pointer]
+              - button "M" [ref=f1e225] [cursor=pointer]
+              - button "G" [ref=f1e226] [cursor=pointer]
+            - generic [ref=f1e227]: R$ 69,90
+            - button "+ sacola" [ref=f1e228] [cursor=pointer]
+          - listitem [ref=f1e229]:
+            - generic [aria-hidden] [ref=f1e231]: "12"
+            - generic [ref=f1e232]:
+              - generic [ref=f1e233]: Garrafa Térmica 500ml
+              - generic [ref=f1e234]: Acessórios
+            - group "Tamanho de Garrafa Térmica 500ml" [ref=f1e235]:
+              - button "Único" [disabled] [pressed] [ref=f1e237] [cursor=pointer]
+            - generic [ref=f1e238]: R$ 39,90
+            - button "Indisponível" [disabled]
+            - paragraph [ref=f1e239]: Indisponível nesta edição
+        - paragraph [ref=f1e240]:
+          - text: Dados e cores de demonstração — troque pelas fotos 3:4 e pelos preços reais em
+          - code [ref=f1e241]: script.js
+          - text: .
+      - complementary [aria-hidden] [ref=f1e242]:
+        - generic [ref=f1e243]:
+          - generic [ref=f1e244]:
+            - generic [ref=f1e245]: "01"
+            - generic [ref=f1e246]: amostra de cor
+          - paragraph [ref=f1e247]: Leggings
+          - paragraph [ref=f1e248]: Legging Cintura Alta Preta
+          - paragraph [ref=f1e249]: R$ 89,90
+    - generic [ref=f1e251]:
+      - generic [ref=f1e252]:
+        - heading "Como funciona" [level=2] [ref=f1e253]
+        - paragraph [ref=f1e254]: Não tem checkout aqui. O pedido termina em conversa.
+      - list [ref=f1e255]:
+        - listitem [ref=f1e256]:
+          - generic [aria-hidden] [ref=f1e257]: "01"
+          - heading "Monte a nota" [level=3] [ref=f1e258]
+          - paragraph [ref=f1e259]: Escolha tamanho e adicione as peças. Você ajusta quantidades e apaga o que não quiser — nada é cobrado por aqui.
+        - listitem [ref=f1e260]:
+          - generic [aria-hidden] [ref=f1e261]: "02"
+          - heading "Envie a nota" [level=3] [ref=f1e262]
+          - paragraph [ref=f1e263]: Ao finalizar, abrimos o WhatsApp com a nota já escrita — peças, tamanhos e totais. É só enviar.
+        - listitem [ref=f1e264]:
+          - generic [aria-hidden] [ref=f1e265]: "03"
+          - heading "Combine no atendimento" [level=3] [ref=f1e266]
+          - paragraph [ref=f1e267]: A loja confirma disponibilidade, forma de pagamento e frete. Se o tamanho não servir, orientamos a troca.
+      - paragraph [ref=f1e268]: "Este site não processa pagamento e não emite nota fiscal eletrônica: o pedido se fecha no atendimento pelo WhatsApp."
+  - contentinfo [ref=f1e269]:
+    - generic [ref=f1e270]:
+      - generic [ref=f1e271]:
+        - paragraph [ref=f1e272]:
+          - generic [ref=f1e273]: Estilosas
+          - generic [ref=f1e274]: fitness
+        - paragraph [ref=f1e275]: Vitrine de moda fitness feminina. O pedido se monta aqui e se fecha com gente.
+      - generic [ref=f1e276]:
+        - heading "Atendimento" [level=2] [ref=f1e277]
+        - paragraph [ref=f1e278]: Segunda a sábado, 9h às 19h
+        - paragraph [ref=f1e279]: Resposta no mesmo dia
+        - link "Abrir conversa no WhatsApp" [ref=f1e280] [cursor=pointer]:
+          - /url: https://wa.me/5500000000000
+      - generic [ref=f1e281]:
+        - heading "O que este site faz" [level=2] [ref=f1e282]
+        - paragraph [ref=f1e283]: Mostra as peças desta edição
+        - paragraph [ref=f1e284]: Guarda sua sacola no aparelho
+        - paragraph [ref=f1e285]: Escreve a nota e abre o WhatsApp
+      - generic [ref=f1e286]:
+        - heading "O que ele não faz" [level=2] [ref=f1e287]
+        - paragraph [ref=f1e288]: Não cobra cartão nem Pix
+        - paragraph [ref=f1e289]: Não calcula frete
+        - paragraph [ref=f1e290]: Não pede cadastro
+    - paragraph [ref=f1e291]: © 2026 Estilosas Fitness — vitrine de demonstração.
+  - dialog [aria-hidden] [ref=f1e292]:
+    - banner [ref=f1e293]:
+      - generic [ref=f1e294]:
+        - paragraph [ref=f1e295]: Estilosas Fitness
+        - heading [level=2] [ref=f1e296]: Nota de encomenda
+      - button [ref=f1e297] [cursor=pointer]
+    - generic [ref=f1e301]:
+      - table [ref=f1e302]:
+        - caption [ref=f1e303]: Peças na sua nota de encomenda
+        - rowgroup [ref=f1e304]:
+          - row [ref=f1e305]:
+            - columnheader [ref=f1e306]: Nº
+            - columnheader [ref=f1e307]: Peça
+            - columnheader [ref=f1e308]: Qtd
+            - columnheader [ref=f1e309]: Total
+        - rowgroup [ref=f1e310]:
+          - row [ref=f1e311]:
+            - cell [ref=f1e312]: "01"
+            - cell [ref=f1e313]:
+              - generic [ref=f1e314]: Legging Cintura Alta Preta
+              - generic [ref=f1e315]: Tam. P · R$ 89,90 un.
+              - button [ref=f1e316] [cursor=pointer]: remover
+            - cell [ref=f1e317]:
+              - generic [ref=f1e318]:
+                - button [ref=f1e319] [cursor=pointer]: −
+                - generic [ref=f1e320]: "2"
+                - button [ref=f1e321] [cursor=pointer]: +
+            - cell [ref=f1e322]: R$ 179,80
+          - row [ref=f1e323]:
+            - cell [ref=f1e324]: "05"
+            - cell [ref=f1e325]:
+              - generic [ref=f1e326]: Top Sun Off-White
+              - generic [ref=f1e327]: Tam. P · R$ 54,90 un.
+              - button [ref=f1e328] [cursor=pointer]: remover
+            - cell [ref=f1e329]:
+              - generic [ref=f1e330]:
+                - button [ref=f1e331] [cursor=pointer]: −
+                - generic [ref=f1e332]: "1"
+                - button [ref=f1e333] [cursor=pointer]: +
+            - cell [ref=f1e334]: R$ 54,90
+      - generic [ref=f1e335]:
+        - generic [ref=f1e336]:
+          - generic [ref=f1e337]: Total das peças
+          - strong [ref=f1e338]: R$ 234,70
+        - paragraph [ref=f1e339]: Frete, pagamento e disponibilidade são combinados no atendimento.
+        - button [ref=f1e340] [cursor=pointer]:
+          - text: Continuar pedido
+          - generic [aria-hidden] [ref=f1e341]: →

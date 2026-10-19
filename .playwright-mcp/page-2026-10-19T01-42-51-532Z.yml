@@ -1,0 +1,484 @@
+- generic [active] [ref=f28e1]:
+  - region "Avisos da loja" [ref=f28e2]:
+    - paragraph [ref=f28e3]: Atendimento direto com a loja
+  - banner [ref=f28e4]:
+    - generic [ref=f28e5]:
+      - link "Estilosas Fitness — início" [ref=f28e6] [cursor=pointer]:
+        - /url: "#capa"
+        - generic [ref=f28e7]: Estilosas
+        - generic [ref=f28e8]: fitness
+      - navigation "Menu principal" [ref=f28e9]:
+        - link "Índice" [ref=f28e10] [cursor=pointer]:
+          - /url: "#indice"
+        - link "Como funciona" [ref=f28e11] [cursor=pointer]:
+          - /url: "#processo"
+        - link "Contato" [ref=f28e12] [cursor=pointer]:
+          - /url: "#colofao"
+      - 'button "sacola: nenhuma peça na nota" [ref=f28e13] [cursor=pointer]'
+  - main [ref=f28e18]:
+    - generic [ref=f28e20]:
+      - generic [ref=f28e21]:
+        - heading "Estilosas" [level=1] [ref=f28e22]:
+          - generic [ref=f28e23]: E
+          - generic [ref=f28e24]: s
+          - generic [ref=f28e25]: t
+          - generic [ref=f28e26]: i
+          - generic [ref=f28e27]: l
+          - generic [ref=f28e28]: o
+          - generic [ref=f28e29]: s
+          - generic [ref=f28e30]: a
+          - generic [ref=f28e31]: s
+        - paragraph [ref=f28e32]: Você escolhe as peças. A gente anota o pedido e responde no WhatsApp.
+        - generic [ref=f28e33]:
+          - link "Ver o índice" [ref=f28e34] [cursor=pointer]:
+            - /url: "#indice"
+            - text: Ver o índice
+            - generic [aria-hidden] [ref=f28e35]: →
+          - link "Como funciona" [ref=f28e36] [cursor=pointer]:
+            - /url: "#processo"
+        - list [ref=f28e37]:
+          - listitem [ref=f28e38]:
+            - strong [ref=f28e39]: Sem cadastro
+            - text: para montar o pedido
+          - listitem [ref=f28e40]:
+            - strong [ref=f28e41]: Pagamento e frete
+            - text: combinados no atendimento
+          - listitem [ref=f28e42]:
+            - strong [ref=f28e43]: Troca de tamanho
+            - text: orientada por quem atende
+      - complementary "Peça em destaque desta edição" [ref=f28e44]:
+        - generic [ref=f28e45]:
+          - img "Legging preta de cintura alta em pose de treino" [ref=f28e46]
+          - generic [aria-hidden] [ref=f28e47]: "01"
+        - generic [ref=f28e48]:
+          - paragraph [ref=f28e49]: Peça em destaque
+          - paragraph [ref=f28e50]: Legging Cintura Alta Preta
+          - paragraph [ref=f28e51]: R$ 89,90
+    - generic [ref=f28e54]:
+      - generic [ref=f28e55]:
+        - heading "Índice" [level=2] [ref=f28e56]
+        - paragraph [ref=f28e57]: Escolha o tamanho na peça e adicione à nota. Dá para revisar tudo antes de enviar.
+      - group "Filtrar por categoria" [ref=f28e58]:
+        - button "Todas" [pressed] [ref=f28e59] [cursor=pointer]
+        - button "Leggings" [ref=f28e60] [cursor=pointer]
+        - button "Conjuntos" [ref=f28e61] [cursor=pointer]
+        - button "Tops" [ref=f28e62] [cursor=pointer]
+        - button "Shorts" [ref=f28e63] [cursor=pointer]
+        - button "Macacões" [ref=f28e64] [cursor=pointer]
+        - button "Blusinhas" [ref=f28e65] [cursor=pointer]
+      - generic [ref=f28e66]:
+        - status [ref=f28e67]: 15 peças no índice
+        - generic [ref=f28e68]:
+          - generic [ref=f28e69]: Buscar
+          - searchbox "Buscar" [ref=f28e70]
+      - generic [ref=f28e71]:
+        - generic [ref=f28e72]:
+          - generic [ref=f28e73]:
+            - heading "Destaques" [level=3] [ref=f28e74]
+            - generic [ref=f28e75]: 6 peças
+            - generic [ref=f28e76]:
+              - button "Ver peças anteriores de Destaques" [ref=f28e77] [cursor=pointer]: ←
+              - button "Ver mais peças de Destaques" [ref=f28e78] [cursor=pointer]: →
+          - list [ref=f28e79]:
+            - listitem [ref=f28e80]:
+              - article [ref=f28e81]:
+                - generic [ref=f28e82]:
+                  - img "Legging preta de cintura alta em pose de treino" [ref=f28e83]
+                  - generic [ref=f28e84]: Mais vendida
+                - generic [ref=f28e85]:
+                  - generic [ref=f28e86]:
+                    - heading "Legging Cintura Alta Preta" [level=3] [ref=f28e87]
+                    - paragraph [ref=f28e88]: R$ 89,90
+                  - paragraph [ref=f28e89]: Leggings
+                  - group "Tamanho de Legging Cintura Alta Preta" [ref=f28e90]:
+                    - button "P" [pressed] [ref=f28e92] [cursor=pointer]
+                    - button "M" [ref=f28e93] [cursor=pointer]
+                    - button "G" [ref=f28e94] [cursor=pointer]
+                    - button "GG" [ref=f28e95] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e96] [cursor=pointer]
+            - listitem [ref=f28e97]:
+              - article [ref=f28e98]:
+                - generic [ref=f28e99]:
+                  - img "Legging cropped cinza com regata preta" [ref=f28e100]
+                  - generic [ref=f28e101]: Oferta
+                - generic [ref=f28e102]:
+                  - generic [ref=f28e103]:
+                    - heading "Legging Cropped Cinza" [level=3] [ref=f28e104]
+                    - paragraph [ref=f28e105]:
+                      - generic [ref=f28e106]: R$ 99,90
+                      - text: R$ 84,90
+                  - paragraph [ref=f28e107]: Leggings
+                  - group "Tamanho de Legging Cropped Cinza" [ref=f28e108]:
+                    - button "P" [pressed] [ref=f28e110] [cursor=pointer]
+                    - button "M" [ref=f28e111] [cursor=pointer]
+                    - button "G" [ref=f28e112] [cursor=pointer]
+                    - button "GG" [ref=f28e113] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e114] [cursor=pointer]
+            - listitem [ref=f28e115]:
+              - article [ref=f28e116]:
+                - generic [ref=f28e117]:
+                  - img "Conjunto rosa de cropped e legging em pose de treino" [ref=f28e118]
+                  - generic [ref=f28e119]: Oferta
+                - generic [ref=f28e120]:
+                  - generic [ref=f28e121]:
+                    - heading "Conjunto Cropped + Legging Rosa" [level=3] [ref=f28e122]
+                    - paragraph [ref=f28e123]:
+                      - generic [ref=f28e124]: R$ 149,90
+                      - text: R$ 129,90
+                  - paragraph [ref=f28e125]: Conjuntos
+                  - group "Tamanho de Conjunto Cropped + Legging Rosa" [ref=f28e126]:
+                    - button "P" [pressed] [ref=f28e128] [cursor=pointer]
+                    - button "M" [ref=f28e129] [cursor=pointer]
+                    - button "G" [ref=f28e130] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e131] [cursor=pointer]
+            - listitem [ref=f28e132]:
+              - article [ref=f28e133]:
+                - generic [ref=f28e134]:
+                  - img "Conjunto seamless caramelo de top e legging" [ref=f28e135]
+                  - generic [ref=f28e136]: Lançamento
+                - generic [ref=f28e137]:
+                  - generic [ref=f28e138]:
+                    - heading "Conjunto Seamless Caramelo" [level=3] [ref=f28e139]
+                    - paragraph [ref=f28e140]: R$ 149,90
+                  - paragraph [ref=f28e141]: Conjuntos
+                  - group "Tamanho de Conjunto Seamless Caramelo" [ref=f28e142]:
+                    - button "P" [pressed] [ref=f28e144] [cursor=pointer]
+                    - button "M" [ref=f28e145] [cursor=pointer]
+                    - button "G" [ref=f28e146] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e147] [cursor=pointer]
+            - listitem [ref=f28e148]:
+              - article [ref=f28e149]:
+                - generic [ref=f28e150]:
+                  - img "Top off-white de alça fina com legging clara" [ref=f28e151]
+                  - generic [ref=f28e152]: Lançamento
+                - generic [ref=f28e153]:
+                  - generic [ref=f28e154]:
+                    - heading "Top Sun Off-White" [level=3] [ref=f28e155]
+                    - paragraph [ref=f28e156]: R$ 54,90
+                  - paragraph [ref=f28e157]: Tops
+                  - group "Tamanho de Top Sun Off-White" [ref=f28e158]:
+                    - button "P" [pressed] [ref=f28e160] [cursor=pointer]
+                    - button "M" [ref=f28e161] [cursor=pointer]
+                    - button "G" [ref=f28e162] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e163] [cursor=pointer]
+            - listitem [ref=f28e164]:
+              - article [ref=f28e165]:
+                - generic [ref=f28e166]:
+                  - img "Macacão fitness laranja em pose de yoga ao ar livre" [ref=f28e167]
+                  - generic [ref=f28e168]: Lançamento
+                - generic [ref=f28e169]:
+                  - generic [ref=f28e170]:
+                    - heading "Macacão Fitness Laranja" [level=3] [ref=f28e171]
+                    - paragraph [ref=f28e172]: R$ 159,90
+                  - paragraph [ref=f28e173]: Macacões
+                  - group "Tamanho de Macacão Fitness Laranja" [ref=f28e174]:
+                    - button "P" [pressed] [ref=f28e176] [cursor=pointer]
+                    - button "M" [ref=f28e177] [cursor=pointer]
+                    - button "G" [ref=f28e178] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e179] [cursor=pointer]
+        - generic [ref=f28e180]:
+          - generic [ref=f28e181]:
+            - heading "Leggings" [level=3] [ref=f28e182]
+            - generic [ref=f28e183]: 3 peças
+            - generic [ref=f28e184]:
+              - button "Ver peças anteriores de Leggings" [ref=f28e185] [cursor=pointer]: ←
+              - button "Ver mais peças de Leggings" [ref=f28e186] [cursor=pointer]: →
+          - list [ref=f28e187]:
+            - listitem [ref=f28e188]:
+              - article [ref=f28e189]:
+                - generic [ref=f28e190]:
+                  - img "Legging preta de cintura alta em pose de treino" [ref=f28e191]
+                  - generic [ref=f28e192]: Mais vendida
+                - generic [ref=f28e193]:
+                  - generic [ref=f28e194]:
+                    - heading "Legging Cintura Alta Preta" [level=3] [ref=f28e195]
+                    - paragraph [ref=f28e196]: R$ 89,90
+                  - paragraph [ref=f28e197]: Leggings
+                  - group "Tamanho de Legging Cintura Alta Preta" [ref=f28e198]:
+                    - button "P" [pressed] [ref=f28e200] [cursor=pointer]
+                    - button "M" [ref=f28e201] [cursor=pointer]
+                    - button "G" [ref=f28e202] [cursor=pointer]
+                    - button "GG" [ref=f28e203] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e204] [cursor=pointer]
+            - listitem [ref=f28e205]:
+              - article [ref=f28e206]:
+                - img "Legging de compressão em tom vinho em treino ao ar livre" [ref=f28e208]
+                - generic [ref=f28e209]:
+                  - generic [ref=f28e210]:
+                    - heading "Legging Compressão Vinho" [level=3] [ref=f28e211]
+                    - paragraph [ref=f28e212]: R$ 94,90
+                  - paragraph [ref=f28e213]: Leggings
+                  - group "Tamanho de Legging Compressão Vinho" [ref=f28e214]:
+                    - button "P" [pressed] [ref=f28e216] [cursor=pointer]
+                    - button "M" [ref=f28e217] [cursor=pointer]
+                    - button "G" [ref=f28e218] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e219] [cursor=pointer]
+            - listitem [ref=f28e220]:
+              - article [ref=f28e221]:
+                - generic [ref=f28e222]:
+                  - img "Legging cropped cinza com regata preta" [ref=f28e223]
+                  - generic [ref=f28e224]: Oferta
+                - generic [ref=f28e225]:
+                  - generic [ref=f28e226]:
+                    - heading "Legging Cropped Cinza" [level=3] [ref=f28e227]
+                    - paragraph [ref=f28e228]:
+                      - generic [ref=f28e229]: R$ 99,90
+                      - text: R$ 84,90
+                  - paragraph [ref=f28e230]: Leggings
+                  - group "Tamanho de Legging Cropped Cinza" [ref=f28e231]:
+                    - button "P" [pressed] [ref=f28e233] [cursor=pointer]
+                    - button "M" [ref=f28e234] [cursor=pointer]
+                    - button "G" [ref=f28e235] [cursor=pointer]
+                    - button "GG" [ref=f28e236] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e237] [cursor=pointer]
+        - generic [ref=f28e238]:
+          - generic [ref=f28e239]:
+            - heading "Conjuntos" [level=3] [ref=f28e240]
+            - generic [ref=f28e241]: 3 peças
+            - generic [ref=f28e242]:
+              - button "Ver peças anteriores de Conjuntos" [ref=f28e243] [cursor=pointer]: ←
+              - button "Ver mais peças de Conjuntos" [ref=f28e244] [cursor=pointer]: →
+          - list [ref=f28e245]:
+            - listitem [ref=f28e246]:
+              - article [ref=f28e247]:
+                - generic [ref=f28e248]:
+                  - img "Conjunto rosa de cropped e legging em pose de treino" [ref=f28e249]
+                  - generic [ref=f28e250]: Oferta
+                - generic [ref=f28e251]:
+                  - generic [ref=f28e252]:
+                    - heading "Conjunto Cropped + Legging Rosa" [level=3] [ref=f28e253]
+                    - paragraph [ref=f28e254]:
+                      - generic [ref=f28e255]: R$ 149,90
+                      - text: R$ 129,90
+                  - paragraph [ref=f28e256]: Conjuntos
+                  - group "Tamanho de Conjunto Cropped + Legging Rosa" [ref=f28e257]:
+                    - button "P" [pressed] [ref=f28e259] [cursor=pointer]
+                    - button "M" [ref=f28e260] [cursor=pointer]
+                    - button "G" [ref=f28e261] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e262] [cursor=pointer]
+            - listitem [ref=f28e263]:
+              - article [ref=f28e264]:
+                - img "Conjunto fitness malva em exercício de treino" [ref=f28e266]
+                - generic [ref=f28e267]:
+                  - generic [ref=f28e268]:
+                    - heading "Conjunto Fitness Malva" [level=3] [ref=f28e269]
+                    - paragraph [ref=f28e270]: R$ 139,90
+                  - paragraph [ref=f28e271]: Conjuntos
+                  - group "Tamanho de Conjunto Fitness Malva" [ref=f28e272]:
+                    - button "M" [pressed] [ref=f28e274] [cursor=pointer]
+                    - button "G" [ref=f28e275] [cursor=pointer]
+                    - button "GG" [ref=f28e276] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e277] [cursor=pointer]
+            - listitem [ref=f28e278]:
+              - article [ref=f28e279]:
+                - generic [ref=f28e280]:
+                  - img "Conjunto seamless caramelo de top e legging" [ref=f28e281]
+                  - generic [ref=f28e282]: Lançamento
+                - generic [ref=f28e283]:
+                  - generic [ref=f28e284]:
+                    - heading "Conjunto Seamless Caramelo" [level=3] [ref=f28e285]
+                    - paragraph [ref=f28e286]: R$ 149,90
+                  - paragraph [ref=f28e287]: Conjuntos
+                  - group "Tamanho de Conjunto Seamless Caramelo" [ref=f28e288]:
+                    - button "P" [pressed] [ref=f28e290] [cursor=pointer]
+                    - button "M" [ref=f28e291] [cursor=pointer]
+                    - button "G" [ref=f28e292] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e293] [cursor=pointer]
+        - generic [ref=f28e294]:
+          - generic [ref=f28e295]:
+            - heading "Tops" [level=3] [ref=f28e296]
+            - generic [ref=f28e297]: 3 peças
+            - generic [ref=f28e298]:
+              - button "Ver peças anteriores de Tops" [ref=f28e299] [cursor=pointer]: ←
+              - button "Ver mais peças de Tops" [ref=f28e300] [cursor=pointer]: →
+          - list [ref=f28e301]:
+            - listitem [ref=f28e302]:
+              - article [ref=f28e303]:
+                - img "Top regata cropped preto em treino de academia" [ref=f28e305]
+                - generic [ref=f28e306]:
+                  - generic [ref=f28e307]:
+                    - heading "Top Regata Cropped Preto" [level=3] [ref=f28e308]
+                    - paragraph [ref=f28e309]: R$ 49,90
+                  - paragraph [ref=f28e310]: Tops
+                  - group "Tamanho de Top Regata Cropped Preto" [ref=f28e311]:
+                    - button "P" [pressed] [ref=f28e313] [cursor=pointer]
+                    - button "M" [ref=f28e314] [cursor=pointer]
+                    - button "G" [ref=f28e315] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e316] [cursor=pointer]
+            - listitem [ref=f28e317]:
+              - article [ref=f28e318]:
+                - generic [ref=f28e319]:
+                  - img "Top off-white de alça fina com legging clara" [ref=f28e320]
+                  - generic [ref=f28e321]: Lançamento
+                - generic [ref=f28e322]:
+                  - generic [ref=f28e323]:
+                    - heading "Top Sun Off-White" [level=3] [ref=f28e324]
+                    - paragraph [ref=f28e325]: R$ 54,90
+                  - paragraph [ref=f28e326]: Tops
+                  - group "Tamanho de Top Sun Off-White" [ref=f28e327]:
+                    - button "P" [pressed] [ref=f28e329] [cursor=pointer]
+                    - button "M" [ref=f28e330] [cursor=pointer]
+                    - button "G" [ref=f28e331] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e332] [cursor=pointer]
+            - listitem [ref=f28e333]:
+              - article [ref=f28e334]:
+                - img "Top esportivo verde de decote ciclista" [ref=f28e336]
+                - generic [ref=f28e337]:
+                  - generic [ref=f28e338]:
+                    - heading "Top Decote Ciclista Verde" [level=3] [ref=f28e339]
+                    - paragraph [ref=f28e340]: R$ 52,90
+                  - paragraph [ref=f28e341]: Tops
+                  - group "Tamanho de Top Decote Ciclista Verde" [ref=f28e342]:
+                    - button "P" [pressed] [ref=f28e344] [cursor=pointer]
+                    - button "M" [ref=f28e345] [cursor=pointer]
+                    - button "G" [ref=f28e346] [cursor=pointer]
+                    - button "GG" [ref=f28e347] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e348] [cursor=pointer]
+        - generic [ref=f28e349]:
+          - generic [ref=f28e350]:
+            - heading "Shorts" [level=3] [ref=f28e351]
+            - generic [ref=f28e352]: 2 peças
+            - generic [ref=f28e353]:
+              - button "Ver peças anteriores de Shorts" [ref=f28e354] [cursor=pointer]: ←
+              - button "Ver mais peças de Shorts" [ref=f28e355] [cursor=pointer]: →
+          - list [ref=f28e356]:
+            - listitem [ref=f28e357]:
+              - article [ref=f28e358]:
+                - img "Short preto de compressão com regata branca em exercício" [ref=f28e360]
+                - generic [ref=f28e361]:
+                  - generic [ref=f28e362]:
+                    - heading "Short Compressão Preto" [level=3] [ref=f28e363]
+                    - paragraph [ref=f28e364]: R$ 59,90
+                  - paragraph [ref=f28e365]: Shorts
+                  - group "Tamanho de Short Compressão Preto" [ref=f28e366]:
+                    - button "P" [pressed] [ref=f28e368] [cursor=pointer]
+                    - button "M" [ref=f28e369] [cursor=pointer]
+                    - button "G" [ref=f28e370] [cursor=pointer]
+                    - button "GG" [ref=f28e371] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e372] [cursor=pointer]
+            - listitem [ref=f28e373]:
+              - article [ref=f28e374]:
+                - img "Short ciclista vermelho com top preto" [ref=f28e376]
+                - generic [ref=f28e377]:
+                  - generic [ref=f28e378]:
+                    - heading "Short Ciclista Vermelho" [level=3] [ref=f28e379]
+                    - paragraph [ref=f28e380]: R$ 64,90
+                  - paragraph [ref=f28e381]: Shorts
+                  - group "Tamanho de Short Ciclista Vermelho" [ref=f28e382]:
+                    - button "M" [disabled] [pressed] [ref=f28e384] [cursor=pointer]
+                    - button "G" [disabled] [ref=f28e385] [cursor=pointer]
+                  - button "+ sacola" [disabled]
+                  - paragraph [ref=f28e386]: Indisponível nesta edição
+        - generic [ref=f28e387]:
+          - generic [ref=f28e388]:
+            - heading "Macacões" [level=3] [ref=f28e389]
+            - generic [ref=f28e390]: 2 peças
+            - generic [ref=f28e391]:
+              - button "Ver peças anteriores de Macacões" [ref=f28e392] [cursor=pointer]: ←
+              - button "Ver mais peças de Macacões" [ref=f28e393] [cursor=pointer]: →
+          - list [ref=f28e394]:
+            - listitem [ref=f28e395]:
+              - article [ref=f28e396]:
+                - generic [ref=f28e397]:
+                  - img "Macacão fitness laranja em pose de yoga ao ar livre" [ref=f28e398]
+                  - generic [ref=f28e399]: Lançamento
+                - generic [ref=f28e400]:
+                  - generic [ref=f28e401]:
+                    - heading "Macacão Fitness Laranja" [level=3] [ref=f28e402]
+                    - paragraph [ref=f28e403]: R$ 159,90
+                  - paragraph [ref=f28e404]: Macacões
+                  - group "Tamanho de Macacão Fitness Laranja" [ref=f28e405]:
+                    - button "P" [pressed] [ref=f28e407] [cursor=pointer]
+                    - button "M" [ref=f28e408] [cursor=pointer]
+                    - button "G" [ref=f28e409] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e410] [cursor=pointer]
+            - listitem [ref=f28e411]:
+              - article [ref=f28e412]:
+                - img "Macacão roxo de treino segurando haltere na academia" [ref=f28e414]
+                - generic [ref=f28e415]:
+                  - generic [ref=f28e416]:
+                    - heading "Macacão Studio Roxo" [level=3] [ref=f28e417]
+                    - paragraph [ref=f28e418]: R$ 169,90
+                  - paragraph [ref=f28e419]: Macacões
+                  - group "Tamanho de Macacão Studio Roxo" [ref=f28e420]:
+                    - button "P" [pressed] [ref=f28e422] [cursor=pointer]
+                    - button "M" [ref=f28e423] [cursor=pointer]
+                    - button "G" [ref=f28e424] [cursor=pointer]
+                    - button "GG" [ref=f28e425] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e426] [cursor=pointer]
+        - generic [ref=f28e427]:
+          - generic [ref=f28e428]:
+            - heading "Blusinhas" [level=3] [ref=f28e429]
+            - generic [ref=f28e430]: 2 peças
+            - generic [ref=f28e431]:
+              - button "Ver peças anteriores de Blusinhas" [ref=f28e432] [cursor=pointer]: ←
+              - button "Ver mais peças de Blusinhas" [ref=f28e433] [cursor=pointer]: →
+          - list [ref=f28e434]:
+            - listitem [ref=f28e435]:
+              - article [ref=f28e436]:
+                - img "Blusinha rosa de manga longa com short combinando" [ref=f28e438]
+                - generic [ref=f28e439]:
+                  - generic [ref=f28e440]:
+                    - heading "Blusinha Manga Longa Rosa" [level=3] [ref=f28e441]
+                    - paragraph [ref=f28e442]: R$ 79,90
+                  - paragraph [ref=f28e443]: Blusinhas
+                  - group "Tamanho de Blusinha Manga Longa Rosa" [ref=f28e444]:
+                    - button "P" [pressed] [ref=f28e446] [cursor=pointer]
+                    - button "M" [ref=f28e447] [cursor=pointer]
+                    - button "G" [ref=f28e448] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e449] [cursor=pointer]
+            - listitem [ref=f28e450]:
+              - article [ref=f28e451]:
+                - img "Blusinha cropped caramelo em look de treino" [ref=f28e453]
+                - generic [ref=f28e454]:
+                  - generic [ref=f28e455]:
+                    - heading "Blusinha Cropped Caramelo" [level=3] [ref=f28e456]
+                    - paragraph [ref=f28e457]: R$ 69,90
+                  - paragraph [ref=f28e458]: Blusinhas
+                  - group "Tamanho de Blusinha Cropped Caramelo" [ref=f28e459]:
+                    - button "P" [pressed] [ref=f28e461] [cursor=pointer]
+                    - button "M" [ref=f28e462] [cursor=pointer]
+                    - button "G" [ref=f28e463] [cursor=pointer]
+                  - button "+ sacola" [ref=f28e464] [cursor=pointer]
+    - generic [ref=f28e466]:
+      - generic [ref=f28e467]:
+        - heading "Como funciona" [level=2] [ref=f28e468]
+        - paragraph [ref=f28e469]: Não tem checkout aqui. O pedido termina em conversa.
+      - list [ref=f28e470]:
+        - listitem [ref=f28e471]:
+          - generic [aria-hidden] [ref=f28e472]: "01"
+          - heading "Monte a nota" [level=3] [ref=f28e473]
+          - paragraph [ref=f28e474]: Escolha tamanho e adicione as peças. Você ajusta quantidades e apaga o que não quiser — nada é cobrado por aqui.
+        - listitem [ref=f28e475]:
+          - generic [aria-hidden] [ref=f28e476]: "02"
+          - heading "Envie a nota" [level=3] [ref=f28e477]
+          - paragraph [ref=f28e478]: Ao finalizar, abrimos o WhatsApp com a nota já escrita — peças, tamanhos e totais. É só enviar.
+        - listitem [ref=f28e479]:
+          - generic [aria-hidden] [ref=f28e480]: "03"
+          - heading "Combine no atendimento" [level=3] [ref=f28e481]
+          - paragraph [ref=f28e482]: A loja confirma disponibilidade, forma de pagamento e frete. Se o tamanho não servir, orientamos a troca.
+      - paragraph [ref=f28e483]: "Este site não processa pagamento e não emite nota fiscal eletrônica: o pedido se fecha no atendimento pelo WhatsApp."
+  - contentinfo [ref=f28e484]:
+    - generic [ref=f28e485]:
+      - generic [ref=f28e486]:
+        - paragraph [ref=f28e487]:
+          - generic [ref=f28e488]: Estilosas
+          - generic [ref=f28e489]: fitness
+        - paragraph [ref=f28e490]: Vitrine de moda fitness feminina. O pedido se monta aqui e se fecha com gente.
+      - generic [ref=f28e491]:
+        - heading "Atendimento" [level=2] [ref=f28e492]
+        - paragraph [ref=f28e493]: Segunda a sábado, 9h às 19h
+        - paragraph [ref=f28e494]: Resposta no mesmo dia
+        - link "Abrir conversa no WhatsApp" [ref=f28e495] [cursor=pointer]:
+          - /url: https://wa.me/5589981425420
+      - generic [ref=f28e496]:
+        - heading "O que este site faz" [level=2] [ref=f28e497]
+        - paragraph [ref=f28e498]: Mostra as peças desta edição
+        - paragraph [ref=f28e499]: Guarda sua sacola no aparelho
+        - paragraph [ref=f28e500]: Escreve a nota e abre o WhatsApp
+      - generic [ref=f28e501]:
+        - heading "O que ele não faz" [level=2] [ref=f28e502]
+        - paragraph [ref=f28e503]: Não cobra cartão nem Pix
+        - paragraph [ref=f28e504]: Não calcula frete
+        - paragraph [ref=f28e505]: Não pede cadastro
+    - paragraph [ref=f28e506]: © 2026 Estilosas Fitness — moda fitness feminina, escolhida peça por peça.
