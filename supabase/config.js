@@ -8,5 +8,5 @@
    fica no RLS do banco. NUNCA coloque a service_role key aqui.
    ============================================================ */
 
-export const SUPABASE_URL = "https://SEU-PROJETO.supabase.co";
-export const SUPABASE_ANON_KEY = "SUA-ANON-KEY";
+export const SUPABASE_URL = "https://vpmmeubpabualjzubrlk.supabase.co";
+export const SUPABASE_ANON_KEY = "sb_publishable_e_4EnGYFSUEDKqVcwRR5nQ_oeYOYxWD";
