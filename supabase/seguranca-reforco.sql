@@ -18,9 +18,9 @@
 
 do $$
 declare
-    admin_email constant text := 'SEU_EMAIL@exemplo.com'; -- <<< EDITE AQUI
+    admin_email constant text := 'victo.e.sousa7@gmail.com'; -- <<< EDITE AQUI
 begin
-    if admin_email = 'SEU_EMAIL@exemplo.com' then
+    if admin_email = 'victo.e.sousa7@gmail.com' then
         raise exception 'Edite admin_email neste arquivo com o e-mail do administrador antes de rodar.';
     end if;
 
