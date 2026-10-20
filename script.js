@@ -8,7 +8,7 @@
 
 "use strict";
 
-import { db, esc, validarImgUrl } from "./supabase/client.js";
+import { db, esc, validarImgUrl, corSegura } from "./supabase/client.js";
 
 /* ------------------------------------------------------------------
    CONFIGURAÇÃO CENTRAL
@@ -68,7 +68,7 @@ function normalizar(linha) {
         alt: String(linha.alt || ""),
         tamanhos: Array.isArray(linha.tamanhos) ? linha.tamanhos.map(String) : [],
         badge: linha.badge ? String(linha.badge) : null,
-        ph: linha.ph ? String(linha.ph) : "#E7E3E7",
+        ph: corSegura(linha.ph),
         disponivel: linha.disponivel !== false,
         criadoEm: linha.criado_em || ""
     };

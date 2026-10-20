@@ -565,6 +565,12 @@ a { color: inherit; }
     padding-top: var(--e2); border-top: var(--filete);
     font-size: .8125rem; color: var(--tinta-fraca);
 }
+.colofao-adm {
+    color: var(--tinta-fraca); text-decoration: none;
+    border-bottom: 1px solid transparent; margin-left: 8px; white-space: nowrap;
+    transition: color var(--t-micro) var(--ease), border-color var(--t-micro) var(--ease);
+}
+.colofao-adm:hover, .colofao-adm:focus-visible { color: var(--acao); border-bottom-color: currentColor; }
 
 /* ============================================================
    NOTA DE ENCOMENDA

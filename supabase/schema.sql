@@ -35,6 +35,8 @@ create index if not exists products_categoria_idx on public.products (categoria)
 
 -- 2. Row Level Security -------------------------------------
 -- Leitura pública (catálogo). Escrita APENAS para usuário autenticado.
+-- Para restringir a escrita a UM e-mail de administrador, rode
+-- também supabase/seguranca-reforco.sql (veja as instruções nele).
 alter table public.products enable row level security;
 alter table public.products force row level security;
 

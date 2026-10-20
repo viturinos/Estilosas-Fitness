@@ -49,6 +49,12 @@ export function validarImgUrl(url) {
         && alvo.pathname.startsWith(CAMINHO_PUBLICO_BUCKET);
 }
 
+/* Cor em atributo `style` só se for #RRGGBB puro; caso contrário, o padrão.
+   Evita injeção de CSS mesmo que o banco venha adulterado. */
+export function corSegura(valor, padrao = "#E7E3E7") {
+    return typeof valor === "string" && /^#[0-9A-Fa-f]{6}$/.test(valor) ? valor : padrao;
+}
+
 /* Mensagem legível e sem detalhe interno para erros do Supabase. */
 export function mensagemErro(erro, padrao = "Não foi possível concluir. Tente de novo.") {
     if (!erro) return padrao;

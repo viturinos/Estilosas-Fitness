@@ -8,7 +8,14 @@
 
 "use strict";
 
-import { db, esc, validarImgUrl, mensagemErro, BUCKET } from "./supabase/client.js";
+import { db, esc, validarImgUrl, corSegura, mensagemErro, BUCKET } from "./supabase/client.js";
+
+/* Anti-clickjacking: se a página estiver num iframe, o quadro pai é
+   redirecionado para o painel real. (CSP por meta não aceita
+   frame-ancestors; este é o reforço possível em hosting estático.) */
+if (window.top !== window.self) {
+    try { window.top.location.replace(window.location.href); } catch { /* cross-origin: sem como redirecionar */ }
+}
 
 const el = (id) => document.getElementById(id);
 
@@ -19,6 +26,7 @@ const TAM_MAX_BYTES = 5 * 1024 * 1024;
 const TIPOS_OK = ["image/jpeg", "image/png", "image/webp"];
 const LADO_MAX = 1600;
 const QUALIDADE_WEBP = 0.82;
+const INATIVIDADE_MAX_MS = 30 * 60 * 1000;
 
 const estado = {
     produtos: [],
@@ -49,6 +57,28 @@ function avisar(msg, ehErro = false) {
 /* ------------------------------------------------------------------
    SESSÃO
    ------------------------------------------------------------------ */
+let inatividadeTimer = null;
+
+function encerrarPorInatividade() {
+    db.auth.signOut().finally(() => {
+        avisar("Sessão encerrada por inatividade. Entre de novo.", true);
+    });
+}
+
+function reiniciarInatividade() {
+    clearTimeout(inatividadeTimer);
+    inatividadeTimer = setTimeout(encerrarPorInatividade, INATIVIDADE_MAX_MS);
+}
+
+function vigiarInatividade() {
+    const reiniciar = () => { if (!el("telaPainel").hidden) reiniciarInatividade(); };
+    document.addEventListener("pointerdown", reiniciar, { passive: true });
+    document.addEventListener("keydown", reiniciar, { passive: true });
+    document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") reiniciar();
+    });
+}
+
 function aplicarSessao(session) {
     const logado = Boolean(session);
     el("telaCarregando").hidden = true;
@@ -57,9 +87,11 @@ function aplicarSessao(session) {
     el("btnSair").hidden = !logado;
 
     if (logado) {
+        reiniciarInatividade();
         carregarLista();
         assinarTempoReal();
     } else {
+        clearTimeout(inatividadeTimer);
         fecharForm();
         estado.produtos = [];
         el("admLista").innerHTML = "";
@@ -123,7 +155,7 @@ function normalizar(linha) {
         alt: String(linha.alt || ""),
         tamanhos: Array.isArray(linha.tamanhos) ? linha.tamanhos.map(String) : [],
         badge: linha.badge ? String(linha.badge) : "",
-        ph: linha.ph ? String(linha.ph) : "#E7E3E7",
+        ph: corSegura(linha.ph),
         disponivel: linha.disponivel !== false,
         criadoEm: linha.criado_em || ""
     };
@@ -263,7 +295,7 @@ function abrirEdicao(p) {
     el("campoPreco").value = p.preco.toFixed(2);
     el("campoPrecoDe").value = p.precoDe == null ? "" : p.precoDe.toFixed(2);
     el("campoBadge").value = p.badge;
-    el("campoPh").value = /^#[0-9A-Fa-f]{6}$/.test(p.ph) ? p.ph : "#E7E3E7";
+    el("campoPh").value = corSegura(p.ph);
     el("campoAlt").value = p.alt;
     el("campoDisponivel").checked = p.disponivel;
     el("campoArquivo").value = "";
@@ -424,7 +456,7 @@ async function salvar(e) {
             alt: dados.alt,
             tamanhos: estado.tamanhos,
             badge: dados.badge || null,
-            ph: el("campoPh").value || null,
+            ph: corSegura(el("campoPh").value),
             disponivel: el("campoDisponivel").checked
         };
 
@@ -518,5 +550,6 @@ function configurarEventos() {
 
 document.addEventListener("DOMContentLoaded", () => {
     configurarEventos();
+    vigiarInatividade();
     iniciarSessao();
 });
