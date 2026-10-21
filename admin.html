@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@1,6..72,300..700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="admin.css?v=20261019b">
+    <link rel="stylesheet" href="admin.css?v=20261021c">
 </head>
 <body class="painel-corpo">
 
@@ -60,6 +60,13 @@
         <!-- PAINEL -->
         <section class="adm" id="telaPainel" hidden>
 
+            <nav class="adm-abas" role="tablist" aria-label="Seções do painel">
+                <button type="button" class="adm-aba ativa" id="abaProdutos" role="tab" aria-selected="true" aria-controls="secaoProdutos">Produtos</button>
+                <button type="button" class="adm-aba" id="abaConfig" role="tab" aria-selected="false" aria-controls="secaoConfig">Configurações</button>
+            </nav>
+
+            <div id="secaoProdutos" role="tabpanel" aria-labelledby="abaProdutos">
+
             <div class="adm-cab">
                 <div>
                     <h1 class="adm-titulo">Produtos</h1>
@@ -94,8 +101,14 @@
                         </label>
 
                         <label class="campo">
-                            <span>Preço (R$) *</span>
+                            <span>Preço à vista (Pix ou dinheiro) *</span>
                             <input type="number" id="campoPreco" min="0" step="0.01" inputmode="decimal" required>
+                        </label>
+
+                        <label class="campo">
+                            <span>Preço no cartão (opcional)</span>
+                            <input type="number" id="campoPrecoCartao" min="0" step="0.01" inputmode="decimal">
+                            <p class="campo-dica">Vazio = o cartão sai pelo mesmo valor. Nunca menor que o à vista.</p>
                         </label>
 
                         <label class="campo">
@@ -115,6 +128,25 @@
                     </div>
 
                     <div class="campo">
+                        <span>Detalhes da peça</span>
+                        <label class="sub-campo">
+                            <span>Descrição</span>
+                            <textarea id="campoDescricao" maxlength="600" rows="4" placeholder="Como a peça é, para quem é, como veste…"></textarea>
+                            <p class="campo-dica"><span id="contadorDescricao">0 de 600</span></p>
+                        </label>
+                        <label class="sub-campo">
+                            <span>Composição</span>
+                            <textarea id="campoComposicao" maxlength="200" rows="2" placeholder="Ex.: 80% poliamida, 20% elastano"></textarea>
+                            <p class="campo-dica"><span id="contadorComposicao">0 de 200</span></p>
+                        </label>
+                        <label class="sub-campo">
+                            <span>Cuidados</span>
+                            <textarea id="campoCuidados" maxlength="300" rows="2" placeholder="Ex.: lavar à mão, secar à sombra"></textarea>
+                            <p class="campo-dica"><span id="contadorCuidados">0 de 300</span></p>
+                        </label>
+                    </div>
+
+                    <div class="campo">
                         <span>Tamanhos *</span>
                         <div class="tams-editor">
                             <ul class="tams-chips" id="tamsChips"></ul>
@@ -123,6 +155,17 @@
                                 <button type="button" class="btn btn--leve" id="btnAddTam">Adicionar</button>
                             </span>
                         </div>
+                    </div>
+
+                    <div class="campo">
+                        <span>Cores (opcional)</span>
+                        <ul class="cores-chips" id="coresChips"></ul>
+                        <span class="cores-add">
+                            <input type="text" id="campoCorNome" maxlength="24" placeholder="Ex.: Preto" aria-label="Nome da cor">
+                            <input type="color" id="campoCorHex" value="#1F1420" aria-label="Amostra da cor">
+                            <button type="button" class="btn btn--leve" id="btnAddCor">Adicionar</button>
+                        </span>
+                        <p class="campo-dica">A cor escolhida na vitrine entra na nota de encomenda. Até 12 cores por peça.</p>
                     </div>
 
                     <label class="campo">
@@ -134,11 +177,13 @@
                     </label>
 
                     <div class="campo">
-                        <span>Foto do produto *</span>
-                        <input type="file" id="campoArquivo" accept="image/jpeg,image/png,image/webp">
-                        <p class="campo-dica">JPG, PNG ou WEBP até 5 MB. A imagem é otimizada antes de subir.</p>
-                        <div class="preview" id="preview" hidden>
-                            <img id="previewImg" alt="">
+                        <span>Fotos do produto *</span>
+                        <div class="fotos-area" id="fotosArea">
+                            <input type="file" id="campoArquivos" accept="image/jpeg,image/png,image/webp" multiple>
+                            <p class="campo-dica">JPG, PNG ou WEBP até 5 MB cada, até 10 fotos. A primeira é a capa. As imagens são otimizadas antes de subir. Também pode arrastar os arquivos para cá.</p>
+                            <p class="fotos-progresso" id="fotosProgresso" role="status" hidden></p>
+                            <ul class="fotos-grade" id="fotosGrade"></ul>
+                            <p class="fotos-contador" id="fotosContador">0 de 10 fotos</p>
                         </div>
                     </div>
 
@@ -156,12 +201,64 @@
                 </form>
             </div>
 
+            </div>
+
+            <!-- CONFIGURAÇÕES -->
+            <div id="secaoConfig" role="tabpanel" aria-labelledby="abaConfig" hidden>
+                <div class="adm-cab">
+                    <div>
+                        <h1 class="adm-titulo">Configurações</h1>
+                        <p class="adm-contagem">O que a loja muda sem mexer no código.</p>
+                    </div>
+                </div>
+
+                <form class="ficha" id="formConfig" novalidate>
+                    <div class="ficha-grade">
+                        <label class="campo">
+                            <span>WhatsApp (55 + DDD + número)</span>
+                            <input type="text" id="configWhatsapp" inputmode="numeric" placeholder="5589981425420">
+                            <p class="campo-dica">Só números, com o 55 na frente.</p>
+                        </label>
+
+                        <label class="campo">
+                            <span>Horário de atendimento</span>
+                            <input type="text" id="configHorario" maxlength="120" placeholder="Segunda a sábado, 9h às 19h">
+                            <p class="campo-dica">Aparece no rodapé do site.</p>
+                        </label>
+
+                        <label class="campo">
+                            <span>Link de contato</span>
+                            <input type="url" id="configContato" placeholder="https://instagram.com/estilosas">
+                            <p class="campo-dica">Instagram, e-mail ou outro endereço. Só http ou https.</p>
+                        </label>
+
+                        <label class="campo">
+                            <span>Peça em destaque</span>
+                            <select id="configDestaque"></select>
+                            <p class="campo-dica">É a peça que fica na capa do site. Sem escolha, vale a primeira do índice.</p>
+                        </label>
+                    </div>
+
+                    <div class="campo">
+                        <span>Faixa de avisos</span>
+                        <textarea id="configFaixa" rows="4" placeholder="Uma mensagem por linha"></textarea>
+                        <p class="campo-dica">Cada linha vira um aviso que se alterna no topo do site. Sem linha, valem os avisos de sempre.</p>
+                    </div>
+
+                    <p class="alerta" id="configErro" role="alert" hidden></p>
+
+                    <div class="ficha-acoes">
+                        <button type="submit" class="btn" id="btnSalvarConfig">Salvar configurações</button>
+                    </div>
+                </form>
+            </div>
+
         </section>
 
     </main>
 
     <div class="aviso" id="aviso" role="status" aria-live="polite" hidden></div>
 
-    <script type="module" src="admin.js?v=20261019b"></script>
+    <script type="module" src="admin.js?v=20261021c"></script>
 </body>
 </html>

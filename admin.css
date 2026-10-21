@@ -94,19 +94,27 @@ img { max-width: 100%; display: block; }
 .campo input[type="text"],
 .campo input[type="email"],
 .campo input[type="password"],
-.campo input[type="number"] {
+.campo input[type="number"],
+.campo input[type="url"],
+.campo textarea,
+.campo select {
     font: inherit; width: 100%;
     padding: 11px 12px;
     border: var(--filete); border-radius: var(--r);
     background: var(--folha); color: var(--tinta);
     transition: border-color var(--t-micro) var(--ease), box-shadow var(--t-micro) var(--ease);
 }
-.campo input:focus-visible {
+.campo textarea { resize: vertical; min-height: 64px; line-height: 1.5; }
+.campo select { appearance: none; padding-right: 34px; cursor: pointer; }
+.campo input:focus-visible,
+.campo textarea:focus-visible,
+.campo select:focus-visible {
     outline: none;
     border-color: var(--acao);
     box-shadow: 0 0 0 3px rgba(142, 66, 139, .14);
 }
-.campo input[aria-invalid="true"] { border-color: var(--erro-tinta); background: var(--erro-fundo); }
+.campo input[aria-invalid="true"],
+.campo textarea[aria-invalid="true"] { border-color: var(--erro-tinta); background: var(--erro-fundo); }
 .campo input[type="color"] { width: 64px; height: 40px; padding: 3px; border: var(--filete); border-radius: var(--r); background: var(--folha); cursor: pointer; }
 .campo-linha { display: flex; gap: var(--e2); align-items: stretch; }
 .campo-linha input { flex: 1; }
@@ -136,6 +144,29 @@ img { max-width: 100%; display: block; }
 
 /* ---------- painel ---------- */
 .adm-cab { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--e3); margin-bottom: var(--e4); }
+
+/* abas: texto com filete embaixo, sem pílula */
+.adm-abas {
+    display: flex; gap: var(--e3);
+    margin-bottom: var(--e4);
+    border-bottom: var(--filete);
+}
+.adm-aba {
+    font: inherit; font-size: .9375rem; font-weight: 600; letter-spacing: .02em;
+    background: none; border: 0; padding: 0 2px var(--e1);
+    margin-bottom: -1px;
+    color: var(--tinta-fraca); cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color var(--t-micro), border-color var(--t-micro);
+}
+.adm-aba:hover { color: var(--tinta); }
+.adm-aba.ativa { color: var(--tinta); border-bottom-color: var(--tinta); }
+
+/* sub-campo (textos aninhados) */
+.sub-campo { display: grid; gap: 6px; margin-bottom: var(--e3); }
+.sub-campo:last-child { margin-bottom: 0; }
+.sub-campo > span { font-size: .8125rem; font-weight: 600; color: var(--tinta-fraca); letter-spacing: .04em; text-transform: uppercase; }
+
 .adm-titulo { font-stretch: var(--cond); font-weight: 800; font-size: 1.75rem; margin: 0; letter-spacing: -.01em; }
 .adm-contagem { margin: 2px 0 0; color: var(--tinta-fraca); font-size: .875rem; }
 .adm-vazio { padding: var(--e4) var(--e3); border: 1px dashed var(--linha-forte); border-radius: var(--r); text-align: center; color: var(--tinta-fraca); }
@@ -152,7 +183,7 @@ img { max-width: 100%; display: block; }
 .adm-item-nome { font-weight: 700; font-stretch: var(--cond); margin: 0 0 2px; font-size: 1.0625rem; }
 .adm-item-meta { margin: 0; color: var(--tinta-fraca); font-size: .875rem; }
 .adm-item-selo { display: inline-block; margin-left: 8px; font-size: .6875rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--acao); }
-.adm-item-acoes { display: flex; gap: var(--e1); }
+.adm-item-acoes { display: flex; gap: var(--e1); align-items: center; }
 .adm-item-acoes button {
     font: inherit; font-size: .8125rem; font-weight: 600;
     background: none; border: var(--filete); border-radius: var(--r);
@@ -161,6 +192,16 @@ img { max-width: 100%; display: block; }
 }
 .adm-item-acoes button:hover { border-color: var(--acao); color: var(--acao); }
 .adm-item-acoes .acao-excluir:hover { border-color: var(--erro-tinta); color: var(--erro-tinta); }
+
+/* ordem manual: botões quadrados com seta de texto */
+.adm-ordem { display: flex; gap: 4px; }
+.adm-ordem-btn {
+    width: 32px; padding: 0 !important;
+    font-size: .9375rem !important; line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+}
+.adm-ordem-btn[disabled] { opacity: .35; cursor: default; }
+.adm-ordem-btn[disabled]:hover { border-color: var(--linha); color: var(--tinta); }
 
 /* ---------- ficha (formulário) ---------- */
 .ficha {
@@ -201,8 +242,73 @@ img { max-width: 100%; display: block; }
     border: var(--filete); border-radius: var(--r); background: var(--folha);
 }
 
-.preview { margin-top: var(--e2); width: 200px; aspect-ratio: 3 / 4; border: var(--filete); border-radius: var(--r); overflow: hidden; background: #E7E3E7; }
-.preview img { width: 100%; height: 100%; object-fit: cover; }
+/* fotos — área de envio, grade com ordem, capa e remoção */
+.fotos-area { border: 1px dashed transparent; border-radius: var(--r); padding: 4px; transition: border-color var(--t-micro), background-color var(--t-micro); }
+.fotos-area--sobre { border-color: var(--acao); background: #F2ECF3; }
+.fotos-grade {
+    list-style: none; display: grid; gap: var(--e2);
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    margin: var(--e2) 0 0; padding: 0;
+}
+.foto-item {
+    position: relative;
+    border: var(--filete); border-radius: var(--r);
+    background: var(--papel); overflow: hidden;
+}
+.foto-item > img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; background: #E7E3E7; }
+.foto-capa {
+    position: absolute; left: 0; top: 0;
+    background: var(--berinjela); color: #fff;
+    font-size: .6875rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    padding: 3px 7px;
+}
+.foto-acoes {
+    display: flex; align-items: center; gap: 2px;
+    padding: 4px; border-top: var(--filete);
+}
+.foto-acoes button {
+    font: inherit; font-size: .75rem; line-height: 1;
+    background: none; border: none; cursor: pointer;
+    color: var(--tinta-fraca);
+    padding: 5px 6px;
+    transition: color var(--t-micro) var(--ease);
+}
+.foto-acoes button:hover:not([disabled]) { color: var(--acao); }
+.foto-acoes button[disabled] { opacity: .35; cursor: default; }
+.foto-acoes .foto-capa-btn { font-size: .6875rem; letter-spacing: .04em; margin-left: auto; }
+.foto-acoes .foto-remover { font-size: .9375rem; }
+.fotos-contador { font-size: .8125rem; color: var(--tinta-fraca); margin: 6px 0 0; }
+.fotos-progresso { font-size: .8125rem; font-weight: 600; color: var(--acao); margin: 6px 0 0; }
+
+/* cores — amostras e chips */
+.cores-chips { list-style: none; display: flex; flex-wrap: wrap; gap: var(--e1); margin: 0 0 var(--e1); padding: 0; min-height: 34px; }
+.cores-chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 5px 6px 5px 7px; background: var(--papel);
+    border: var(--filete); border-radius: var(--r);
+    font-size: .875rem; font-weight: 600;
+}
+.cores-amostra {
+    width: 18px; height: 18px; flex: none;
+    border: 1px solid var(--linha-forte); border-radius: var(--r);
+}
+.cores-chip button {
+    font: inherit; font-size: .9375rem; line-height: 1;
+    background: none; border: none; cursor: pointer;
+    color: var(--tinta-fraca); padding: 2px 4px;
+}
+.cores-chip button:hover { color: var(--erro-tinta); }
+.cores-add { display: flex; gap: var(--e1); align-items: center; flex-wrap: wrap; }
+.cores-add input[type="text"] {
+    font: inherit; width: 140px; padding: 9px 11px;
+    border: var(--filete); border-radius: var(--r); background: var(--folha);
+}
+.cores-add input[type="color"] {
+    width: 44px; height: 40px; padding: 3px;
+    border: var(--filete); border-radius: var(--r); background: var(--folha);
+    cursor: pointer;
+}
 
 /* ---------- aviso (toast) ---------- */
 .aviso {
@@ -246,7 +352,9 @@ img { max-width: 100%; display: block; }
     .tams-add input { flex: 1 1 120px; width: auto; min-width: 0; }
     .tams-add .btn { flex: 0 0 auto; }
 
-    .preview { width: 160px; }
+    .fotos-grade { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
+    .foto-acoes { flex-wrap: wrap; }
+    .cores-add input[type="text"] { flex: 1 1 120px; width: auto; min-width: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

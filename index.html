@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Newsreader:ital,opsz,wght@1,6..72,300..700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=20261019e">
+    <link rel="stylesheet" href="style.css?v=20261021c">
     <script src="head.js"></script>
 </head>
 <body>
@@ -58,7 +58,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="principal">
 
         <!-- 1 · CAPA -->
         <section class="capa" id="capa">
@@ -183,9 +183,10 @@
 
             <div class="colofao-col">
                 <h2 class="colofao-rot">Atendimento</h2>
-                <p>Segunda a sábado, 9h às 19h</p>
+                <p id="rodapeHorario">Segunda a sábado, 9h às 19h</p>
                 <p>Resposta no mesmo dia</p>
                 <a class="link" id="rodapeWhatsLink" href="#" target="_blank" rel="noopener">Abrir conversa no WhatsApp</a>
+                <a class="link" id="rodapeContato" href="#" target="_blank" rel="noopener" hidden>Contato da loja</a>
             </div>
 
             <div class="colofao-col">
@@ -210,6 +211,73 @@
 
     <!-- 5 · NOTA DE ENCOMENDA -->
     <div class="nota-fundo" id="notaFundo" hidden></div>
+
+    <!-- 6 · FICHA DA PEÇA -->
+    <div class="peca" id="peca" role="dialog" aria-modal="true" aria-labelledby="pecaNome" aria-hidden="true" hidden>
+        <div class="peca-folha">
+
+            <div class="peca-galeria">
+                <div class="peca-galeria-area">
+                    <div class="peca-fotos" id="galeriaFaixa"></div>
+                    <button type="button" class="peca-seta peca-seta--ant" id="galeriaAnt" aria-label="Foto anterior" hidden>←</button>
+                    <button type="button" class="peca-seta peca-seta--prox" id="galeriaProx" aria-label="Próxima foto" hidden>→</button>
+                    <p class="peca-contador" id="galeriaContador" aria-live="polite"></p>
+                </div>
+                <div class="peca-minis" id="galeriaMinis"></div>
+            </div>
+
+            <div class="peca-info">
+                <button type="button" class="peca-fechar" id="fecharPecaBtn" aria-label="Fechar a peça">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <path d="M5 5l14 14M19 5L5 19"/>
+                    </svg>
+                </button>
+
+                <p class="peca-cat" id="pecaCategoria"></p>
+                <h2 class="peca-nome" id="pecaNome"></h2>
+                <p class="peca-preco" id="pecaPreco"></p>
+
+                <div class="peca-detalhes" id="pecaDetalhes" hidden>
+                    <p class="peca-detalhes-rot">Detalhes</p>
+                    <div class="peca-detalhe" id="pecaDescricaoLinha" hidden>
+                        <p class="peca-detalhe-texto" id="pecaDescricao"></p>
+                    </div>
+                    <div class="peca-detalhe" id="pecaComposicaoLinha" hidden>
+                        <span class="peca-detalhe-rot">Composição</span>
+                        <p class="peca-detalhe-texto" id="pecaComposicao"></p>
+                    </div>
+                    <div class="peca-detalhe" id="pecaCuidadosLinha" hidden>
+                        <span class="peca-detalhe-rot">Cuidados</span>
+                        <p class="peca-detalhe-texto" id="pecaCuidados"></p>
+                    </div>
+                </div>
+
+                <fieldset class="peca-grupo">
+                    <legend class="peca-label">Tamanho</legend>
+                    <div class="tams" id="pecaTams"></div>
+                </fieldset>
+
+                <fieldset class="peca-grupo" id="pecaGrupoCores" hidden>
+                    <legend class="peca-label">Cor</legend>
+                    <div class="cores" id="pecaCores"></div>
+                </fieldset>
+
+                <div class="peca-acoes">
+                    <button type="button" class="item-add peca-add" id="pecaAdd">+ sacola</button>
+                </div>
+
+                <p class="peca-voz">
+                    Dúvida de tamanho? A gente orienta no WhatsApp.
+                    <a class="link peca-perguntar" id="pecaPerguntar" href="#" target="_blank" rel="noopener">Perguntar sobre esta peça</a>
+                </p>
+
+                <button type="button" class="link peca-nota" id="pecaVerNota" hidden>ver minha nota</button>
+
+                <button type="button" class="link peca-compartilhar" id="pecaCompartilhar">Compartilhar esta peça</button>
+            </div>
+
+        </div>
+    </div>
 
     <aside class="nota" id="nota" role="dialog" aria-modal="true" aria-labelledby="notaTitulo" aria-hidden="true">
         <header class="nota-topo">
@@ -248,7 +316,7 @@
 
                 <div class="nota-resumo" id="notaResumo" hidden>
                     <div class="nota-total">
-                        <span>Total das peças</span>
+                        <span id="subtotalRotulo">Total no Pix</span>
                         <strong id="subtotalTexto">R$ 0,00</strong>
                     </div>
                     <p class="nota-obs">Frete, pagamento e disponibilidade são combinados no atendimento.</p>
@@ -291,6 +359,15 @@
                 </fieldset>
 
                 <fieldset class="grupo">
+                    <legend>Pagamento</legend>
+                    <div class="opcoes opcoes--tres">
+                        <label class="opcao"><input type="radio" name="pagamento" value="pix" checked> Pix</label>
+                        <label class="opcao"><input type="radio" name="pagamento" value="dinheiro"> Dinheiro</label>
+                        <label class="opcao"><input type="radio" name="pagamento" value="cartao"> Cartão</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="grupo">
                     <legend>Aviso para a loja</legend>
                     <label class="campo">
                         <span class="sr-only">Observações do pedido</span>
@@ -302,7 +379,7 @@
 
                 <div class="nota-resumo">
                     <div class="nota-total">
-                        <span>Total das peças</span>
+                        <span id="totalRotulo">Total no Pix</span>
                         <strong id="totalFormTexto">R$ 0,00</strong>
                     </div>
                     <button type="submit" class="btn btn--bloco" id="btnEnviarWhats">
@@ -326,6 +403,6 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
-    <script type="module" src="script.js?v=20261019d"></script>
+    <script type="module" src="script.js?v=20261021c"></script>
 </body>
 </html>

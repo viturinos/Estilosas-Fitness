@@ -238,7 +238,8 @@ a { color: inherit; }
 .capa-destaque-info { padding-top: var(--e2); border-top: var(--filete); margin-top: var(--e2); }
 .capa-destaque-rot { margin: 0 0 4px; font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tinta-fraca); }
 .capa-destaque-nome { margin: 0; font-stretch: var(--cond); font-weight: 700; font-size: 1.125rem; line-height: 1.3; }
-.capa-destaque-preco { margin: 4px 0 0; font-weight: 600; font-size: .9375rem; color: var(--acao); }
+/* Preço nunca ganha cor de destaque (DNA, linha 48). */
+.capa-destaque-preco { margin: 4px 0 0; font-weight: 600; font-size: .9375rem; color: var(--tinta); }
 
 /* foto do destaque da capa */
 .capa-foto { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #3B3B44; }
@@ -442,9 +443,32 @@ a { color: inherit; }
     margin: 0; min-width: 0;
 }
 .card-preco { margin-left: auto; font-weight: 600; font-size: 1rem; text-align: right; white-space: nowrap; }
-.card-preco .de {
+.card-preco .de,
+.capa-destaque-preco .de {
     display: block; font-weight: 400; font-size: .8125rem;
     color: var(--tinta-fraca); text-decoration: line-through;
+}
+/* O valor é o número principal; nunca ganha cor de destaque. */
+.card-preco .preco-valor,
+.capa-destaque-preco .preco-valor,
+.peca-preco .preco-valor {
+    font-weight: 600; color: var(--tinta);
+}
+/* Preço à vista é o número principal; o cartão é só apoio. */
+.card-preco .preco-desconto,
+.capa-destaque-preco .preco-desconto,
+.peca-preco .preco-desconto {
+    margin-left: 6px; font-size: .8125rem; font-weight: 600; color: var(--tinta);
+}
+.card-preco .preco-aux-linha,
+.capa-destaque-preco .preco-aux-linha,
+.peca-preco .preco-aux-linha {
+    display: block;
+    font-size: .75rem; font-weight: 500; letter-spacing: .02em;
+    color: var(--tinta-fraca); white-space: normal;
+}
+.preco-aux-linha .preco-aux + .preco-aux::before {
+    content: " · ";
 }
 .card-cat {
     margin: 4px 0 var(--e2);
@@ -706,6 +730,8 @@ a { color: inherit; }
 .campo input[aria-invalid="true"], .campo textarea[aria-invalid="true"] { border: 2px solid var(--erro-tinta); }
 
 .opcoes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--e1); margin-bottom: var(--e2); }
+/* três formas de pagamento: uma linha só no desktop */
+.opcoes--tres { grid-template-columns: repeat(3, 1fr); }
 .opcao {
     display: flex; align-items: center; gap: 8px;
     font-size: .9375rem; font-weight: 500;
@@ -722,6 +748,279 @@ a { color: inherit; }
     color: var(--erro-tinta); font-size: .875rem; font-weight: 500; line-height: 1.5;
     padding: 10px 13px; border-radius: 0; margin: 0 0 var(--e3);
 }
+
+/* ============================================================
+   FICHA DA PEÇA
+   ============================================================
+   Folha branca plana sobre o fundo compartilhado com a nota.
+   Sem sombra: a hierarquia vem do filete e do espaço em branco.
+   ============================================================ */
+
+.peca {
+    position: fixed; inset: 0; z-index: 65;
+    display: grid; place-items: center;
+    padding: var(--e3);
+    pointer-events: none;
+}
+.peca[hidden] { display: none; }
+
+.peca-folha {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    width: min(1120px, 100%);
+    height: min(86dvh, 780px);
+    background: var(--folha);
+    border: var(--filete);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(18px);
+    visibility: hidden;
+    transition: opacity var(--t-grande) var(--ease), transform var(--t-grande) var(--ease),
+                visibility 0s linear var(--t-grande);
+    pointer-events: auto;
+}
+.peca.aberta .peca-folha {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: opacity var(--t-grande) var(--ease), transform var(--t-grande) var(--ease),
+                visibility 0s;
+}
+
+/* galeria — faixa rolável com snap + miniaturas.
+   A largura da coluna segue a altura disponível para a foto ficar
+   perto do 3:4 do upload, sem corte. */
+.peca-galeria {
+    display: flex; flex-direction: column;
+    width: min(520px, calc((min(86dvh, 780px) - 76px) * .75));
+    min-width: 0; min-height: 0;
+    overflow: hidden;
+    background: var(--papel);
+    border-right: var(--filete);
+}
+.peca-galeria-area {
+    position: relative;
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+}
+.peca-fotos {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0; min-height: 0;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+.peca-fotos::-webkit-scrollbar { display: none; }
+.peca-foto {
+    position: relative;
+    flex: 0 0 100%;
+    min-width: 0;
+    height: 100%;
+    scroll-snap-align: center;
+    background: var(--ph, #CDBFD0);
+}
+.peca-foto img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform var(--t) var(--ease);
+}
+.peca-foto--vazia { background: var(--ph, #CDBFD0); }
+
+/* zoom da foto: 2x a partir do ponto tocado */
+.peca-fotos { cursor: zoom-in; }
+.peca-fotos:has(.peca-foto--zoom) { cursor: zoom-out; }
+.peca-foto--zoom img { transform: scale(2); }
+@media (prefers-reduced-motion: reduce) {
+    .peca-foto img { transition: none; }
+}
+
+.peca-seta {
+    position: absolute; top: 50%;
+    width: 38px; height: 38px;
+    display: inline-flex; align-items: center; justify-content: center;
+    transform: translateY(-50%);
+    border: var(--filete); border-radius: var(--r);
+    background: var(--folha); color: var(--tinta);
+    font: inherit; font-size: 1rem; line-height: 1;
+    cursor: pointer;
+    transition: border-color var(--t-micro), color var(--t-micro);
+}
+.peca-seta:hover { border-color: var(--acao); color: var(--acao); }
+.peca-seta--ant { left: 12px; }
+.peca-seta--prox { right: 12px; }
+.peca-seta[hidden] { display: none; }
+
+.peca-contador {
+    position: absolute; right: 12px; bottom: 12px;
+    margin: 0;
+    padding: 3px 8px;
+    background: var(--folha);
+    border: var(--filete); border-radius: var(--r);
+    font-size: .75rem; font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--tinta-fraca);
+}
+
+.peca-minis {
+    flex: none;
+    display: flex; gap: 6px;
+    padding: 10px 12px;
+    border-top: var(--filete);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.peca-minis::-webkit-scrollbar { display: none; }
+.peca-minis[hidden] { display: none; }
+.peca-mini {
+    flex: none;
+    width: 44px; height: 56px;
+    padding: 0; border: 1px solid transparent; border-radius: var(--r);
+    background: var(--papel);
+    cursor: pointer; overflow: hidden;
+    transition: border-color var(--t-micro);
+}
+.peca-mini img { width: 100%; height: 100%; object-fit: cover; }
+.peca-mini:hover { border-color: var(--linha-forte); }
+.peca-mini.ativa { border-color: var(--acao); border-width: 2px; }
+
+/* informação */
+.peca-info {
+    position: relative;
+    padding: var(--e4) var(--e3) var(--e3);
+    overflow-y: auto;
+    min-width: 0;
+}
+.peca-fechar {
+    position: absolute; right: var(--e2); top: var(--e2);
+    width: 34px; height: 34px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: var(--filete); border-radius: var(--r);
+    background: none; color: var(--tinta); cursor: pointer;
+    transition: border-color var(--t-micro), color var(--t-micro);
+}
+.peca-fechar:hover { border-color: var(--acao); color: var(--acao); }
+
+.peca-cat {
+    margin: 0 0 6px;
+    font-size: .75rem; font-weight: 500;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--tinta-fraca);
+}
+.peca-nome {
+    font-stretch: var(--cond); font-weight: 700;
+    font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.05;
+    letter-spacing: -.01em;
+    margin: 0 0 var(--e1);
+    padding-right: 44px;
+}
+.peca-preco { margin: 0 0 var(--e3); font-weight: 600; font-size: 1.25rem; }
+.peca-preco .de {
+    display: block; font-weight: 400; font-size: .9375rem;
+    color: var(--tinta-fraca); text-decoration: line-through;
+}
+
+.peca-grupo { border: 0; padding: 0; margin: 0 0 var(--e3); }
+.peca-label {
+    font-size: .75rem; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--tinta-fraca);
+    padding: 0 0 var(--e1);
+    margin-bottom: 8px;
+    border-bottom: var(--filete); width: 100%;
+}
+
+/* cores — amostra quadrada de 2px, nome sempre visível */
+.cores { display: flex; flex-wrap: wrap; gap: 8px; }
+.cor {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 10px 5px 5px;
+    border: 2px solid var(--linha); border-radius: var(--r);
+    background: var(--folha); color: var(--tinta);
+    font: inherit; font-size: .8125rem; font-weight: 600;
+    cursor: pointer;
+    transition: border-color var(--t-micro), color var(--t-micro);
+}
+.cor:hover { border-color: var(--linha-forte); }
+.cor[aria-pressed="true"] { border-color: var(--acao); color: var(--acao); }
+.cor-amostra {
+    width: 18px; height: 18px; flex: none;
+    border: var(--filete-forte); border-radius: var(--r);
+}
+
+.peca-acoes {
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--e2);
+    padding-top: var(--e2);
+    border-top: 1px solid var(--tinta);
+}
+.peca-add { height: 44px; padding: 0 20px; }
+
+/* a voz da loja: serifa itálica, com a ação em linha reta */
+.peca-voz {
+    margin: var(--e2) 0 0;
+    font-family: var(--voz); font-style: italic; font-weight: 400;
+    font-size: 1rem; line-height: 1.5;
+    color: var(--tinta-fraca);
+}
+.peca-perguntar {
+    font-family: var(--cat); font-style: normal;
+    font-size: .875rem; font-weight: 600; letter-spacing: .04em;
+    white-space: nowrap;
+}
+.peca-nota {
+    margin-top: var(--e2);
+    font-size: .75rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+}
+.peca-compartilhar {
+    display: block; margin-top: var(--e2);
+    font-size: .875rem; color: var(--tinta-fraca);
+}
+
+/* detalhes da peça: só aparece quando a loja escreveu */
+.peca-detalhes {
+    margin: 0 0 var(--e3);
+    padding-top: var(--e2);
+    border-top: var(--filete);
+}
+.peca-detalhes-rot {
+    font-size: .75rem; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--tinta-fraca);
+    margin: 0 0 var(--e1);
+}
+.peca-detalhe { margin-bottom: var(--e2); }
+.peca-detalhe:last-child { margin-bottom: 0; }
+.peca-detalhe-rot {
+    display: block; margin-bottom: 4px;
+    font-size: .75rem; font-weight: 600; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--tinta-fraca);
+}
+.peca-detalhe-texto {
+    margin: 0; font-size: .9375rem; line-height: 1.55;
+    max-width: 62ch;
+}
+
+/* ============================================================
+   CARD — foto e nome viram botões
+   ============================================================ */
+
+.card-abrir {
+    display: block; width: 100%; height: 100%;
+    padding: 0; margin: 0; border: 0; background: none;
+    cursor: pointer;
+}
+.card-nome-btn {
+    display: block; width: 100%;
+    font-family: inherit; font-size: inherit; font-weight: inherit;
+    font-stretch: inherit; line-height: inherit; letter-spacing: inherit;
+    color: inherit; background: none; border: 0; padding: 0;
+    cursor: pointer; text-align: left;
+}
+.card-nome-btn:hover { color: var(--acao); }
 
 /* ============================================================
    SACOLA FLUTUANTE
@@ -795,6 +1094,26 @@ body:has(.sacola-flutuante.visivel) .toast { bottom: 84px; }
 
     .nota { width: 100vw; }
     .opcoes { grid-template-columns: 1fr; }
+
+    /* ficha da peça — quase tela cheia, rolagem por dentro */
+    .peca { padding: 0; }
+    .peca-folha {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto minmax(0, 1fr);
+        width: 100%;
+        height: 100dvh;
+        max-height: 100dvh;
+        border: 0;
+    }
+    .peca-galeria {
+        width: 100%;
+        height: 54dvh;
+        align-self: start;
+        border-right: 0;
+        border-bottom: var(--filete);
+    }
+    .peca-info { padding: var(--e3) var(--e3) var(--e4); }
+    .peca-nome { font-size: 1.75rem; }
 }
 
 /* ============================================================
@@ -810,4 +1129,5 @@ body:has(.sacola-flutuante.visivel) .toast { bottom: 84px; }
     .js .capa-letra { transform: none; }
     .nota { transform: translateX(102%); }
     .nota.aberta { transform: translateX(0); }
+    .peca-folha, .peca.aberta .peca-folha { transform: none; }
 }
