@@ -1265,38 +1265,12 @@ function linkDaPeca(id) {
 }
 
 function gerarMensagem() {
-    const d = dadosDoFormulario();
     const l = [];
-    l.push(`Olá, ${CONFIG.nomeEmpresa}! Montei minha nota de encomenda pelo site.`);
-    l.push("");
-    l.push("*NOTA DE ENCOMENDA*");
-    l.push("");
-    l.push("*Cliente:* " + d.nome);
-    l.push("*Telefone:* " + d.telefone);
-    l.push("");
-    l.push("*PEÇAS:*");
-
     estado.nota.forEach((it) => {
         const p = buscarProduto(it.id);
         if (!p) return;
-        l.push(`${ficha(p)} · ${it.quantidade}x ${p.nome} (Tam. ${it.tamanho}${it.cor ? " · " + it.cor : ""}) — ${formatarMoeda(precoItem(p) * it.quantidade)}`);
-        l.push(linkDaPeca(it.id));
+        l.push(`${it.quantidade}x ${p.nome} (Tam. ${it.tamanho}${it.cor ? " · " + it.cor : ""}) — ${formatarMoeda(precoItem(p) * it.quantidade)}`);
     });
-
-    l.push("");
-    l.push("*Pagamento:* " + (ROTULO_PAGAMENTO[estado.formaPagamento] || "Pix"));
-    l.push("*Total das peças:* " + formatarMoeda(subtotal()));
-    l.push("");
-    l.push("*Recebimento:* " + (d.forma === "entrega" ? "Entrega" : "Retirada no local"));
-    if (d.forma === "entrega") {
-        l.push("Endereço: " + d.endereco + (d.bairro ? " — Bairro: " + d.bairro : ""));
-    }
-    if (d.observacoes) {
-        l.push("");
-        l.push("*Aviso para a loja:* " + d.observacoes);
-    }
-    l.push("");
-    l.push("Pode confirmar disponibilidade, pagamento e frete?");
     return l.join("\n");
 }
 
