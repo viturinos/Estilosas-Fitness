@@ -408,6 +408,7 @@ function cardProduto(p) {
                     <p class="card-preco">${blocoPreco(p, false)}</p>
                 </div>
                 <p class="card-cat">${esc(p.categoria)}</p>
+                <p class="card-cores">${(p.cores || []).filter(Boolean).map((c) => `<span class="card-cor" style="--cor:${esc(corSegura(c.hex))}" title="${esc(c.nome)}"><span class="sr-only">${esc(c.nome)}</span></span>`).join("")}</p>
                 <fieldset class="tams" ${p.disponivel ? "" : "disabled"}>
                     <legend class="sr-only">Tamanho de ${esc(p.nome)}</legend>
                     ${p.tamanhos.map((t) => `

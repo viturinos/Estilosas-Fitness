@@ -476,6 +476,21 @@ a { color: inherit; }
     letter-spacing: .1em; text-transform: uppercase;
     color: var(--tinta-fraca);
 }
+.card-cores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: -2px 0 var(--e2);
+    min-height: 12px;
+}
+.card-cor {
+    display: inline-block;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--cor);
+    border: 1px solid rgba(31, 20, 32, .18);
+}
+.card-cor .sr-only { position: absolute; left: -9999px; }
 .card .tams { margin-bottom: var(--e2); }
 .card .item-add { width: 100%; margin-top: auto; height: 36px; }
 .aviso-item { font-size: .8125rem; font-weight: 600; color: var(--erro-tinta); margin: var(--e1) 0 0; }
